@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS spotter_db; 
+CREATE DATABASE spotter_db; 
