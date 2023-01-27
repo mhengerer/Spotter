@@ -3,6 +3,8 @@ const sequelize = require("../config/connection");
 
 class Exercise extends Model {}
 
+// FUTURE DEVELOPMENT:
+// equipment, tutorial videos, 
 Exercise.init(
   {
     id: {
@@ -18,6 +20,9 @@ Exercise.init(
     description: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    muscle_groups: {
+        type: DataTypes.STRING
     },
     reps_set: {
       type: DataTypes.INTEGER,
