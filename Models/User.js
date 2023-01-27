@@ -36,11 +36,11 @@ User.init(
       },
     },
     height: {
-        type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
     },
     weight: {
-        type: DataTypes.INTEGER
-    }
+      type: DataTypes.INTEGER,
+    },
   },
   {
     hooks: {
