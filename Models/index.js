@@ -1,6 +1,7 @@
 const User = require("./User");
 const Exercise = require("./Exercise");
 const Routine = require("./Routine");
+const Log = require("./Log");
 
 User.hasMany(Routine, {
   foreignKey: "user_id",
