@@ -35,7 +35,8 @@
       "date_created": "2021-01-01T00:00:00"   
     },  
     {    
-      "name": "Intermediate Workout",    "description": "A routine for those with some exercise experience",    
+      "name": "Intermediate Workout",    
+      "description": "A routine for those with some exercise experience",    
       "user_id": 2,
       "date_created": "2021-01-01T00:00:00"  
     },  
@@ -52,7 +53,8 @@
       "date_created": "2021-01-01T00:00:00"   
     },  
     {    
-      "name": "Muscle Building Workout",    "description": "A routine that focuses on building muscle mass",    
+      "name": "Muscle Building Workout",    
+      "description": "A routine that focuses on building muscle mass",    
       "user_id": 5,
       "date_created": "2021-01-01T00:00:00"   
     }
