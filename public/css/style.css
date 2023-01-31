@@ -1,0 +1,68 @@
+:root {
+ --dark-purple: #261C2C;
+ --med-purple: #3E2C41;
+ --light-purple: #5C527F;
+ --gold: #E6B325;
+ --hover-yellow:#FADA9D;
+ --text-color: white;
+}
+
+/* ////////////ALL ELEMENTS/////////////// */
+* {
+    color:var(--text-color);
+}
+
+button:hover {
+    background-color: var(--hover-yellow);
+}
+
+button{
+    background-color: var(--gold);
+    color: #261C2C;
+}
+
+header,
+h1{
+    background-color: var(--dark-purple);
+    color: var(--gold);
+}
+
+/* ///////////LOGIN PAGE///////////////// */
+.main-container {
+    height: 100vh;
+    background-color: var(--dark-purple);
+}
+
+.form-container {
+    background-color: var(--med-purple);
+}
+
+input {
+    background-color: var(--light-purple);
+}
+
+header,
+h2 {
+    background-color: var(--dark-purple);
+    color: var(--gold)
+}
+
+#logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+}
+
+/* ////////////WEEKLY ROUTINE PAGE//////////// */
+#routine-cards {
+    background-color: var(--light-purple);
+}
+
+.card-header {
+    color: var(--text-color);
+}
+
+.card-desc {
+    color: var(--gold);
+}
