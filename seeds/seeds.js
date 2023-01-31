@@ -1,25 +1,21 @@
-const sequelize = require('../config/connection');
-const { User, Exercise, Routine } = require('./models');
+//const sequelize = require('');
+const { User } = require('../Models');
+const { Exercise } = require('../Models');
+const { Routine } = require('../Models');
+const  { Log } = require('../Models');
 
-const users = [
-  { name: 'John Doe', email: 'johndoe@example.com' },
-  { name: 'Jane Doe', email: 'janedoe@example.com' },
-];
 
-const exercises = [
-  { name: 'Squats', description: 'Stand with feet hip-width apart, then lower your body as if sitting back into a chair.' },
-  { name: 'Push-ups', description: 'Start in a plank position with hands shoulder-width apart, lower yourself towards the ground, then push back up.' },
-];
+const userData = require('../seeds/userData.json');
+const exerciseData = require('../seeds/exerciseData.json');
+const routineData = require('../seeds/routineData.json');
 
-const routines = [
-  { name: 'Full Body Workout', user_id: 1 },
-  { name: 'Cardio', user_id: 2 },
-];
+const seedDatabase = async () => {
+  //await sequelize.sync({ force: true });
 
-const createSeeds = async () => {
-  await User.bulkCreate(users, { ignoreDuplicates: true });
-  await Exercise.bulkCreate(exercises, { ignoreDuplicates: true });
-  await Routine.bulkCreate(routines, { ignoreDuplicates: true });
+  await User.bulkCreate(userData);
+  await Exercise.bulkCreate(exerciseData);
+  await Routine.bulkCreate(routineData);
+  
 };
 
-createSeeds();
+seedDatabase();
