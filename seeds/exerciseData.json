@@ -1,0 +1,82 @@
+[
+  {
+      "name": "Barbell Bench Press",
+      "description": "A compound exercise for the chest muscles.",
+      "muscle_groups": "Chest",
+      "reps_set": "3x12",
+      "routine_id": 1,
+      "user_id": 1
+  },
+  {
+      "name": "Barbell Squat",
+      "description": "A compound exercise for the legs and core.",
+      "muscle_groups": "Legs, Core",
+      "reps_set": "3x10",
+      "routine_id": 1,
+      "user_id": 2
+  },
+  {
+      "name": "Dumbbell Bicep Curl",
+      "description": "An isolation exercise for the biceps.",
+      "muscle_groups": "Biceps",
+      "reps_set": "3x12",
+      "routine_id": 1,
+      "user_id": 3
+  },
+  {
+      "name": "Dumbbell Tricep Extension",
+      "description": "An isolation exercise for the triceps.",
+      "muscle_groups": "Triceps",
+      "reps_set": "3x12",
+      "routine_id": 1,
+      "user_id": 4
+  },
+  {
+      "name": "Lat Pulldown",
+      "description": "A compound exercise for the back muscles.",
+      "muscle_groups": "Back",
+      "reps_set": "3x12",
+      "routine_id": 1,
+      "user_id": 5
+  },
+  {
+      "name": "Seated Cable Row",
+      "description": "A compound exercise for the back muscles.",
+      "muscle_groups": "Back",
+      "reps_set": "3x12",
+      "routine_id": 2,
+      "user_id": 1
+  },
+  {
+      "name": "Barbell Deadlift",
+      "description": "A compound exercise for the legs and back.",
+      "muscle_groups": "Legs, Back",
+      "reps_set": "3x10",
+      "routine_id": 2,
+      "user_id": 2
+  },
+  {
+      "name": "Barbell Shoulder Press",
+      "description": "A compound exercise for the shoulders.",
+      "muscle_groups": "Shoulders",
+      "reps_set": "3x12",
+      "routine_id": 2,
+      "user_id": 3
+  },
+  {
+      "name": "Barbell Curl",
+      "description": "An isolation exercise for the biceps.",
+      "muscle_groups": "Biceps",
+      "reps_set": "3x12",
+      "routine_id": 2,
+      "user_id": 4
+  },
+  {
+      "name": "Barbell Tricep Extension",
+      "description": "An isolation exercise for the triceps.",
+      "muscle_groups": "Triceps",
+      "reps_set": "3x12",
+      "routine_id": 2,
+      "user_id": 5
+  }
+]     

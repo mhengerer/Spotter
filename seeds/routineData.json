@@ -1,0 +1,61 @@
+[  {    
+     "name": "Full Body Workout",    
+     "description": "A routine that targets all major muscle groups",    
+     "user_id": 1,
+     "date_created": "2021-01-01T00:00:00"  
+    },  
+    {    
+      "name": "Upper Body Workout",    
+      "description": "A routine that focuses on upper body exercises",    
+      "user_id": 2,
+      "date_created": "2021-01-01T00:00:00"    
+    },  
+    {    
+      "name": "Lower Body Workout",    
+      "description": "A routine that focuses on lower body exercises",    
+      "user_id": 3,
+      "date_created": "2021-01-01T00:00:00"   
+    },  
+    {    
+      "name": "Strength Training",    
+      "description": "A routine that focuses on building strength",    
+      "user_id": 4,
+      "date_created": "2021-01-01T00:00:00"   
+    },  
+    {    
+      "name": "Cardio Workout",    
+      "description": "A routine that focuses on cardiovascular fitness",    
+      "user_id": 5,
+      "date_created": "2021-01-01T00:00:00"   
+    },  
+    {    
+      "name": "Beginner's Workout",    
+      "description": "A routine for those new to exercise",    
+      "user_id": 1,
+      "date_created": "2021-01-01T00:00:00"   
+    },  
+    {    
+      "name": "Intermediate Workout",    
+      "description": "A routine for those with some exercise experience",    
+      "user_id": 2,
+      "date_created": "2021-01-01T00:00:00"  
+    },  
+    {    
+      "name": "Advanced Workout",    
+      "description": "A routine for experienced exercisers",    
+      "user_id": 3,
+      "date_created": "2021-01-01T00:00:00"   
+    },  
+    {    
+      "name": "Fat Loss Workout",    
+      "description": "A routine that focuses on burning fat",    
+      "user_id": 4,
+      "date_created": "2021-01-01T00:00:00"   
+    },  
+    {    
+      "name": "Muscle Building Workout",    
+      "description": "A routine that focuses on building muscle mass",    
+      "user_id": 5,
+      "date_created": "2021-01-01T00:00:00"   
+    }
+]

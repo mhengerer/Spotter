@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Ronnie Coleman",
+    "email": "rcoleman@gmail.com",
+    "password": "password1",
+    "height": 72,
+    "weight": 199
+  },
+  {
+    "name": "Arnold Schwarzenegger",
+    "email": "arnolds@gmail.com",
+    "password": "password2",
+    "height": 75,
+    "weight": 200
+  },
+  {
+    "name": "Andrea Shaw",
+    "email": "andreashaw@gmail.com",
+    "password": "password3",
+    "height": 64,
+    "weight": 160
+  },
+  {
+    "name": "Melina Keltaniemi",
+    "email": "melinak@gmail.com",
+    "password": "password4",
+    "height": 68,
+    "weight": 155
+  },
+  {
+    "name": "Flex Wheeler",
+    "email": "flexwheeler@gmail.com",
+    "password": "password5",
+    "height": 73,
+    "weight": 195
+  }
+] 
+
