@@ -11,9 +11,6 @@ class User extends Model {
 User.init(
   {
     id: {
-      type: UUID,
-      // Generates uuid in Sequelize through the literal method
-      defaultValue: literal("uuid_generate_v4()"),
       allowNull: false,
       primaryKey: true,
     },
