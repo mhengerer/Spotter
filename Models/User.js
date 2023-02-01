@@ -1,6 +1,6 @@
-const { Model, DataTypes } = require("sequelize");
+const { Model, DataTypes, UUID, literal } = require("sequelize");
 const bcrypt = require("bcrypt");
-const Sequelize = require("../config/connection");
+const sequelize = require("../config/connection");
 
 class User extends Model {
   checkPassword(loginPw) {
@@ -11,8 +11,9 @@ class User extends Model {
 User.init(
   {
     id: {
-      type: Sequelize.UUID,
-      defaultValue: Sequelize.literal("uuid_generate_v4()"),
+      type: UUID,
+      // Generates uuid in Sequelize through the literal method
+      defaultValue: literal("uuid_generate_v4()"),
       allowNull: false,
       primaryKey: true,
     },
@@ -56,7 +57,7 @@ User.init(
         return updatedUserData;
       },
     },
-    Sequelize,
+    sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
