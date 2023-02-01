@@ -3,15 +3,23 @@ const Exercise = require("./Exercise");
 const Routine = require("./Routine");
 const Log = require("./Log");
 
-// User has many Routines 
-User.hasMany(Routine, {
-  foreignKey: "user_id",
-  onDelete: "CASCADE",
+// User has 1 associated Log
+Log.belongsTo(User, {
+  foreignKey: "user_id"
 });
 
-Routine.belongsTo(User, {
+User.hasOne(Log, {
   foreignKey: "user_id"
 })
+
+// Each Log has many attached Routines 
+Routine.belongsTo(Log, {
+  foreignKey: "log_id"
+});
+
+Log.hasOne(Log, {
+  foreignKey: "log_id"
+}); 
 
 // Routine has many associated exercises 
 Routine.hasMany(Exercise, {
@@ -21,24 +29,16 @@ Routine.hasMany(Exercise, {
 
 Exercise.belongsTo(Routine, {
   foreignKey: "routine_id"
-})
-
-// User table can have many logs attached to it
-Log.belongsTo(User, {
-  foreignKey: "user_id"
 });
-
-User.hasMany(Log, {
-  foreignKey: "user_id"
-})
-
-// Each Routine has one attached log
-Log.belongsTo(Routine, {
-  foreignKey: "routine_id"
-});
-
-Routine.hasOne(Log, {
-  foreignKey: "routine_id"
-}); 
 
 module.exports = { User, Exercise, Routine };
+
+// // User has many Routines 
+// User.hasMany(Routine, {
+//   foreignKey: "user_id",
+//   onDelete: "CASCADE",
+// });
+
+// Routine.belongsTo(User, {
+//   foreignKey: "user_id"
+// })
