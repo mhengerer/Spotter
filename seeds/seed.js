@@ -1,9 +1,5 @@
 //const sequelize = require('');
-const { User } = require('../Models');
-const { Exercise } = require('../Models');
-const { Routine } = require('../Models');
-const  { Log } = require('../Models');
-
+const { User, Exercise, Routine, Log } = require('../Models');
 
 const userData = require('./userData.json');
 const exerciseData = require('./exerciseData.json');
@@ -11,11 +7,25 @@ const routineData = require('./routineData.json');
 
 const seedDatabase = async () => {
   //await sequelize.sync({ force: true });
+  // const users = await User.bulkCreate(userData, {
+  //   individualHooks: true,
+  //   returning: true
+  // });
 
-  await User.bulkCreate(userData);
-  await Exercise.bulkCreate(exerciseData);
-  await Routine.bulkCreate(routineData);
-  
+  for (const routine of routineData) {
+    await Routine.create({
+      ...routine,
+      log_id: 1 // Dummy value
+      //routine[Math.floor(Math.random() * routines.length)].id,
+    });
+  };
+
+  for (const exercise of exerciseData) {
+    await Exercise.create({
+      ...exercise,
+      routine_id: routine[Math.floor(Math.random() * routine.length)].id,
+    });
+  };
 };
 
 seedDatabase();
