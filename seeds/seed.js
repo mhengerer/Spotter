@@ -12,6 +12,14 @@ const seedDatabase = async () => {
   //   returning: true
   // });
 
+  for (const user of userData) {
+    await Log.create({
+      user_id: user.id,
+    });
+  };
+
+  let routineArray = [];
+
   for (const routine of routineData) {
     await Routine.create({
       ...routine,
@@ -21,7 +29,9 @@ const seedDatabase = async () => {
   };
 
   for (const exercise of exerciseData) {
-    await Exercise.create({
+     
+
+    seedArray += await Exercise.create({
       ...exercise,
       routine_id: routine[Math.floor(Math.random() * routine.length)].id,
     });
