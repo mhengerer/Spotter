@@ -10,22 +10,20 @@ Exercise.init(
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
+      primaryKey: true
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    muscle_groups: {
+    body_part: {
+      type: DataTypes.STRING
+    }, 
+    target: {
         type: DataTypes.STRING
     },
-    reps_set: {
-      type: DataTypes.INTEGER,
+    gif_url: {
+      type: DataTypes.STRING, 
     },
     routine_id: {
       type: DataTypes.INTEGER,
@@ -33,14 +31,8 @@ Exercise.init(
         model: "routine",
         key: "id",
       },
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "user",
-        key: "id",
-      },
-    },
+      allowNull: false
+    }
   },
   {
     sequelize,
