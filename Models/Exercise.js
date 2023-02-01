@@ -3,8 +3,6 @@ const sequelize = require("../config/connection");
 
 class Exercise extends Model {}
 
-// FUTURE DEVELOPMENT:
-// equipment, tutorial videos, 
 Exercise.init(
   {
     id: {
@@ -20,7 +18,10 @@ Exercise.init(
       type: DataTypes.STRING
     }, 
     target: {
-        type: DataTypes.STRING
+      type: DataTypes.STRING
+    },
+    equipment: {
+      type: DataTypes.STRING,
     },
     gif_url: {
       type: DataTypes.STRING, 

@@ -11,24 +11,13 @@ Log.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    last_use: {
-      type: DataTypes.DATETIME,
-      allowNull: false,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "user",
         key: "id",
       },
-    },
-    routine_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "routine",
-        key: "id",
-      },
-    },
+    }
   },
   {
     sequelize,
