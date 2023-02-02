@@ -5,9 +5,9 @@ const { Routine } = require('../Models');
 const  { Log } = require('../Models');
 
 
-const userData = require('../seeds/userData.json');
-const exerciseData = require('../seeds/exerciseData.json');
-const routineData = require('../seeds/routineData.json');
+const userData = require('./userData.json');
+const exerciseData = require('./exerciseData.json');
+const routineData = require('./routineData.json');
 
 const seedDatabase = async () => {
   //await sequelize.sync({ force: true });
