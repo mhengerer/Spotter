@@ -1,4 +1,4 @@
-const { Model, DataTypes, literal } = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 class Routine extends Model {}
@@ -26,7 +26,7 @@ Routine.init(
       },
     },
     scheduled: {
-      type: DataTypes.DATETIME,
+      type: DataTypes.DATE,
     },
   },
   {

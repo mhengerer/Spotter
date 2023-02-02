@@ -1,82 +1,58 @@
 [
-  {
-      "name": "Barbell Bench Press",
-      "description": "A compound exercise for the chest muscles.",
-      "muscle_groups": "Chest",
-      "reps_set": "3x12",
-      "routine_id": 1,
-      "user_id": 1
-  },
-  {
-      "name": "Barbell Squat",
-      "description": "A compound exercise for the legs and core.",
-      "muscle_groups": "Legs, Core",
-      "reps_set": "3x10",
-      "routine_id": 1,
-      "user_id": 2
-  },
-  {
-      "name": "Dumbbell Bicep Curl",
-      "description": "An isolation exercise for the biceps.",
-      "muscle_groups": "Biceps",
-      "reps_set": "3x12",
-      "routine_id": 1,
-      "user_id": 3
-  },
-  {
-      "name": "Dumbbell Tricep Extension",
-      "description": "An isolation exercise for the triceps.",
-      "muscle_groups": "Triceps",
-      "reps_set": "3x12",
-      "routine_id": 1,
-      "user_id": 4
-  },
-  {
-      "name": "Lat Pulldown",
-      "description": "A compound exercise for the back muscles.",
-      "muscle_groups": "Back",
-      "reps_set": "3x12",
-      "routine_id": 1,
-      "user_id": 5
-  },
-  {
-      "name": "Seated Cable Row",
-      "description": "A compound exercise for the back muscles.",
-      "muscle_groups": "Back",
-      "reps_set": "3x12",
-      "routine_id": 2,
-      "user_id": 1
-  },
-  {
-      "name": "Barbell Deadlift",
-      "description": "A compound exercise for the legs and back.",
-      "muscle_groups": "Legs, Back",
-      "reps_set": "3x10",
-      "routine_id": 2,
-      "user_id": 2
-  },
-  {
-      "name": "Barbell Shoulder Press",
-      "description": "A compound exercise for the shoulders.",
-      "muscle_groups": "Shoulders",
-      "reps_set": "3x12",
-      "routine_id": 2,
-      "user_id": 3
-  },
-  {
-      "name": "Barbell Curl",
-      "description": "An isolation exercise for the biceps.",
-      "muscle_groups": "Biceps",
-      "reps_set": "3x12",
-      "routine_id": 2,
-      "user_id": 4
-  },
-  {
-      "name": "Barbell Tricep Extension",
-      "description": "An isolation exercise for the triceps.",
-      "muscle_groups": "Triceps",
-      "reps_set": "3x12",
-      "routine_id": 2,
-      "user_id": 5
-  }
-]     
+    {
+        "id": "0165",
+        "name": "cable hammer curl (with rope)",
+        "body_part": "upper arms",
+        "target": "biceps",
+        "equipment": "cable", 
+        "gif_url": "http://d205bpvrqc9yn1.cloudfront.net/0165.gif"
+    },
+    {
+        "id": "0303",
+        "name": "dumbbell decline hammer press",
+        "body_part": "chest",
+        "target": "pectorals",
+        "equipment": "dumbbell", 
+        "gif_url": "http://d205bpvrqc9yn1.cloudfront.net/0303.gif"
+    },
+    {
+        "id": "1436",
+        "name": "barbell high bar squat",
+        "body_part": "upper legs",
+        "target": "glutes",
+        "equipment": "barbell", 
+        "gif_url": "http://d205bpvrqc9yn1.cloudfront.net/1436.gif"
+    },
+    {
+        "id": "3168",
+        "name": "bodyweight squatting row",
+        "body_part": "back",
+        "target": "upper back",
+        "equipment": "body weight", 
+        "gif_url": "http://d205bpvrqc9yn1.cloudfront.net/3168.gif"
+    },
+    {
+        "id": "0150",
+        "name": "cable bar lateral pulldown",
+        "body_part": "back",
+        "target": "lats",
+        "equipment": "cable", 
+        "gif_url": "http://d205bpvrqc9yn1.cloudfront.net/0150.gif"
+    },
+    {
+        "id": "1261",
+        "name": "cable decline press",
+        "body_part": "chest",
+        "target": "pectorals",
+        "equipment": "cable", 
+        "gif_url": "http://d205bpvrqc9yn1.cloudfront.net/1261.gif"
+    },
+    {
+        "id": "0539",
+        "name": "kettlebell one arm jerk",
+        "body_part": "shoulders",
+        "target": "delts",
+        "equipment": "kettlebell", 
+        "gif_url": "http://d205bpvrqc9yn1.cloudfront.net/0538.gif"
+    }
+]

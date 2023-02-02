@@ -14,11 +14,13 @@ User.hasOne(Log, {
 
 // Each Log has many attached Routines 
 Routine.belongsTo(Log, {
-  foreignKey: "log_id"
+  foreignKey: "log_id", 
+  onDelete: "CASCADE"
 });
 
-Log.hasOne(Log, {
-  foreignKey: "log_id"
+Log.hasMany(Routine, {
+  foreignKey: "log_id",
+  onDelete: "CASCADE"
 }); 
 
 // Routine has many associated exercises 
@@ -31,7 +33,7 @@ Exercise.belongsTo(Routine, {
   foreignKey: "routine_id"
 });
 
-module.exports = { User, Exercise, Routine };
+module.exports = { User, Exercise, Routine, Log };
 
 // // User has many Routines 
 // User.hasMany(Routine, {
