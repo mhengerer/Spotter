@@ -1,53 +1,138 @@
 <div id="routine-board">
-    <nav class="w-full py-2 relative shadow-md">
-        <button id="logout-btn" class="block pt-2 pb-2 pl-3 pr-3 rounded-xl ml-2 font-bold">Log Out</button>
-    </nav>
-    <header>
-        <h1 class="text-center font-medium text-6xl mt-5 tracking-widest">WEEKLY ROUTINE</h1>
-        <img id="logo" src="./assets/images/spot-logo.png" alt="logo of a gold stick figure holding a barbell">
-    </header>
-    <div class="flex flex-wrap justify-center space-x-10 h-full" id="routine-divs">
-         <div class="flex flex-col md:flex-row max-w-xl rounded-lg shadow-lg mt-7" id="routine-cards">
-                <div class="p-20 flex flex-col justify-center items-center" id="tuesday-card">
-                    <h5 class="card-header text-xl leading-tight font-medium mb-2">Monday</h5>
-                        <p class="card-desc text-base mb-4">Leg Day</p>
-                </div>
-        </div>
-        <div class="flex flex-col md:flex-row max-w-xl rounded-lg shadow-lg mt-7" id="routine-cards">
-                <div class="p-20 flex flex-col justify-center items-center" id="tuesday-card">
-                    <h5 class="card-header text-xl font-medium mb-2">Tuesday</h5>
-                        <p class="card-desc text-base mb-4">Rest Day</p>
-                </div>
-        </div>
-        <div class="flex flex-col md:flex-row max-w-xl rounded-lg shadow-lg mt-7" id="routine-cards">
-                <div class="p-20 flex flex-col justify-center items-center" id="wednesday-card">
-                    <h5 class="card-header text-xl font-medium mb-2">Wednesday</h5>
-                    <iconify-icon class="justify-center" icon="el:plus-sign" style="color: #e6b325;" width="50" height="50"></iconify-icon>    
-                </div>
-        </div>
-        <div class="flex flex-col md:flex-row max-w-xl rounded-lg shadow-lg mt-7" id="routine-cards">
-                <div class="p-20 flex flex-col justify-center items-center" id="thursday-card">
-                    <h5 class="card-header text-xl font-medium mb-2">Thursday</h5>  
-                    <iconify-icon class="justify-center" icon="el:plus-sign" style="color: #e6b325;" width="50" height="50"></iconify-icon>   
-                </div>
-        </div>
-        <div class="flex flex-col md:flex-row max-w-xl rounded-lg shadow-lg mt-7" id="routine-cards">
-                <div class="p-20 flex flex-col justify-center items-center" id="friday-card">
-                    <h5 class="card-header text-xl font-medium mb-2">Friday</h5>  
-                    <iconify-icon class="justify-center" icon="el:plus-sign" style="color: #e6b325;" width="50" height="50"></iconify-icon> 
-                </div>
-        </div>
-        <div class="flex flex-col md:flex-row max-w-xl rounded-lg shadow-lg mt-7" id="routine-cards">
-                <div class="p-20 flex flex-col justify-center items-center" id="saturday-card">
-                    <h5 class="card-header text-xl font-medium mb-2">Saturday</h5> 
-                    <iconify-icon class="justify-center" icon="el:plus-sign" style="color: #e6b325;" width="50" height="50"></iconify-icon> 
-                </div>
-        </div>
-        <div class="flex flex-col md:flex-row max-w-xl rounded-lg shadow-lg mt-7" id="routine-cards">
-                <div class="p-20 flex flex-col justify-center items-center" id="sunday-card">
-                    <h5 class="card-header text-xl font-medium mb-2">Sunday</h5>
-                    <iconify-icon class="justify-center" icon="el:plus-sign" style="color: #e6b325;" width="50" height="50"></iconify-icon> 
-                </div>
-        </div>
+  <nav class="w-full py-2 relative shadow-md">
+    <button
+      id="logout-btn"
+      class="block pt-2 pb-2 pl-3 pr-3 rounded-xl ml-2 font-bold"
+    >Log Out</button>
+  </nav>
+  <header>
+    <h1 class="text-center font-medium text-6xl mt-5 tracking-widest">WEEKLY
+      ROUTINE</h1>
+    <img
+      id="logo"
+      src="./assets/images/spot-logo.png"
+      alt="logo of a gold stick figure holding a barbell"
+    />
+  </header>
+  <div
+    class="flex flex-wrap justify-center space-x-10 h-full"
+    id="routine-divs"
+  >
+    <div
+      class="flex flex-col md:flex-row max-w-xl rounded-lg shadow-lg mt-7"
+      id="routine-cards"
+    >
+      <div
+        class="p-20 flex flex-col justify-center items-center"
+        id="tuesday-card"
+      >
+        <h5
+          class="card-header text-xl leading-tight font-medium mb-2"
+        >Monday</h5>
+        <p class="card-desc text-base mb-4">Leg Day</p>
+      </div>
     </div>
-  </div> 
+    <div
+      class="flex flex-col md:flex-row max-w-xl rounded-lg shadow-lg mt-7"
+      id="routine-cards"
+    >
+      <div
+        class="p-20 flex flex-col justify-center items-center"
+        id="tuesday-card"
+      >
+        <h5 class="card-header text-xl font-medium mb-2">Tuesday</h5>
+        <p class="card-desc text-base mb-4">Rest Day</p>
+      </div>
+    </div>
+    <div
+      class="flex flex-col md:flex-row max-w-xl rounded-lg shadow-lg mt-7"
+      id="routine-cards"
+    >
+      <div
+        class="p-20 flex flex-col justify-center items-center"
+        id="wednesday-card"
+      >
+        <h5 class="card-header text-xl font-medium mb-2">Wednesday</h5>
+        <iconify-icon
+          class="justify-center"
+          icon="el:plus-sign"
+          style="color: #e6b325;"
+          width="50"
+          height="50"
+        ></iconify-icon>
+      </div>
+    </div>
+    <div
+      class="flex flex-col md:flex-row max-w-xl rounded-lg shadow-lg mt-7"
+      id="routine-cards"
+    >
+      <div
+        class="p-20 flex flex-col justify-center items-center"
+        id="thursday-card"
+      >
+        <h5 class="card-header text-xl font-medium mb-2">Thursday</h5>
+        <iconify-icon
+          class="justify-center"
+          icon="el:plus-sign"
+          style="color: #e6b325;"
+          width="50"
+          height="50"
+        ></iconify-icon>
+      </div>
+    </div>
+    <div
+      class="flex flex-col md:flex-row max-w-xl rounded-lg shadow-lg mt-7"
+      id="routine-cards"
+    >
+      <div
+        class="p-20 flex flex-col justify-center items-center"
+        id="friday-card"
+      >
+        <h5 class="card-header text-xl font-medium mb-2">Friday</h5>
+        <iconify-icon
+          class="justify-center"
+          icon="el:plus-sign"
+          style="color: #e6b325;"
+          width="50"
+          height="50"
+        ></iconify-icon>
+      </div>
+    </div>
+    <div
+      class="flex flex-col md:flex-row max-w-xl rounded-lg shadow-lg mt-7"
+      id="routine-cards"
+    >
+      <div
+        class="p-20 flex flex-col justify-center items-center"
+        id="saturday-card"
+      >
+        <h5 class="card-header text-xl font-medium mb-2">Saturday</h5>
+        <iconify-icon
+          class="justify-center"
+          icon="el:plus-sign"
+          style="color: #e6b325;"
+          width="50"
+          height="50"
+        ></iconify-icon>
+      </div>
+    </div>
+    <div
+      class="flex flex-col md:flex-row max-w-xl rounded-lg shadow-lg mt-7"
+      id="routine-cards"
+    >
+      <div
+        class="p-20 flex flex-col justify-center items-center"
+        id="sunday-card"
+      >
+        <h5 class="card-header text-xl font-medium mb-2">Sunday</h5>
+        <iconify-icon
+          class="justify-center"
+          icon="el:plus-sign"
+          style="color: #e6b325;"
+          width="50"
+          height="50"
+        ></iconify-icon>
+      </div>
+    </div>
+  </div>
+</div>
