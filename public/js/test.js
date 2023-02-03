@@ -1,41 +1,5 @@
-// const options = {
-// 	method: 'GET',
-// 	headers: {
-// 		'X-RapidAPI-Key': '083e01c47emsh0c712299a543f85p102dbajsn07f83c72bfdd',
-// 		'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
-// 	}
-// };
-
-// fetch('https://exercisedb.p.rapidapi.com/exercises/name/${user_input}', options)
-// 	.then(response => response.json())
-// 	.then(response => console.log(response))
-// 	.catch(err => console.error(err));
-
-
-
-    //page 1 LOGIN (button), SIGNUP (button) 
-    const loginFormHandler = async (event) => {
-        event.preventDefault();
+    //index.html LOGIN (button added QS to login.handlebars), NEW HERE (button href="#" id="new-user") 
     
-        const email = document.querySelector('#email-login').value.trim();
-        const password = document.querySelector('#password-login').value.trim();
-    
-        if (email && password) {
-        const response = await fetch('/api/users/login', {
-            method: 'POST',
-            body: JSON.stringify({ email, password }),
-            headers: { 'Content-Type': 'application/json' },
-        });
-    
-        if (response.ok) {
-            document.location.replace('/');
-        } else {
-            alert('Failed to log in');
-        }
-        }
-    };
-
-
     const signupFormHandler = async (event) => {
         event.preventDefault();
       
@@ -52,14 +16,10 @@
         }
     };
       
-  
-    document
-    .querySelector('.login-form')
-    .addEventListener('submit', loginFormHandler);
 
     document
-    .querySelector('.signup-form')
-    .addEventListener('submit', signupFormHandler);
+    .querySelector('.new-user')
+    .addEventListener('click', signupFormHandler);
       
 
 //page 2 SUBMIT SIGNUP FORM (button needs to be created, not on mockup)
@@ -102,7 +62,7 @@ form.addEventListener('submit', async (e) => {
 });
 
 
-//page 3 SIGNOUT (button), + BUTTON for ROUTINE DAY OF THE WEEK (button), PREVIOUS WORKOUTS (? a or button)
+//exercise.html LOGOUT (button id="logout-btn"), + BUTTON for ROUTINE DAY OF THE WEEK (button), PREVIOUS WORKOUTS (? a or button)
 const signout = async () => {
     const response = await fetch('/api/users/signout', {
       method: 'POST',
@@ -117,7 +77,7 @@ const signout = async () => {
   };
   
   document
-  .querySelector('#signout')
+  .querySelector('#logout-btn')
   .addEventListener('click', signout);
 
 
@@ -143,3 +103,15 @@ addButton.addEventListener("click", function() {
   selectedDay.innerHTML += `<li>${selectedExercise}</li>`;
 });
 
+// const options = {
+// 	method: 'GET',
+// 	headers: {
+// 		'X-RapidAPI-Key': '083e01c47emsh0c712299a543f85p102dbajsn07f83c72bfdd',
+// 		'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
+// 	}
+// };
+
+// fetch('https://exercisedb.p.rapidapi.com/exercises/name/${user_input}', options)
+// 	.then(response => response.json())
+// 	.then(response => console.log(response))
+// 	.catch(err => console.error(err));
