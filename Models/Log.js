@@ -12,11 +12,20 @@ Log.init(
       autoIncrement: true,
     },
     user_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
+      allowNull: false,
       references: {
         model: "user",
         key: "id",
       },
+    },
+    routine_id: {
+      type: DataTypes.INTEGER, 
+      allowNull: false, 
+      references: {
+        model: "routine", 
+        key: "id"
+      }
     }
   },
   {
