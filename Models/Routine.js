@@ -18,10 +18,10 @@ Routine.init(
     description: {
       type: DataTypes.STRING,
     },
-    log_id: {
-      type: DataTypes.INTEGER,
+    user_id: {
+      type: DataTypes.UUID,
       references: {
-        model: "log",
+        model: "user",
         key: "id",
       },
     },
