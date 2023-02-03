@@ -5,35 +5,38 @@ const userData = require('./userData.json');
 const exerciseData = require('./exerciseData.json');
 const routineData = require('./routineData.json');
 
+// Seeds the database
+// Generates Users first 
+// Generates Routines randomly under these user profiles.
+// In the same loop, generates a Log for each Routine
+// Fills the routines with random exercises 
+// I'm so proud of this -df
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
+  // Generate Users
   const users = await User.bulkCreate(userData, {
     individualHooks: true,
     returning: true
   });
 
-  let numLogs = 0; 
-  for (const user of userData) {
-    await Log.create({
-      user_id: user.id,
-    });
-    numLogs++; 
-  };
-
-  let numRoutines = 0; 
+  //Generate Routines and Logs
   for (const routine of routineData) {
-    await Routine.create({
+    const routineObj = await Routine.create({
       ...routine,
-      log_id: (Math.floor(Math.random() * numLogs))
+      user_id: users[Math.floor(Math.random() * users.length)].id,
     });
-    numRoutines++; 
-  };
 
+    await Log.create({
+      user_id: users[Math.floor(Math.random() * users.length)].id,
+      routine_id: routineObj.id
+    });
+  }
 
+  // Generate Exercises
   for (const exercise of exerciseData) {
     await Exercise.create({
       ...exercise, 
-      routine_id: (Math.floor(Math.random() * numRoutines))
+      routine_id: (Math.floor(Math.random() * routineData.length + 1))
     })
   }
 };
