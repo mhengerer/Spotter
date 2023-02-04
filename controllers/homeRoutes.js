@@ -7,15 +7,13 @@ const { todaysDate, lastDayWeek } = require("../utils/helpers");
 // this takes user to portal login if they arent already logged in
 router.get("/", withAuth, (req, res) => {
   Routine.findAll({
-    include: [
-      {
-        model: User,
-        attributes: ["name"],
-      },
-    ],
     where: {
       // NEEDS TO CHANGE TO .session 
       id: req.body.user_id,
+      
+      scheduled: {
+          [Op.between]: [todaysDate, lastDayWeek],
+      },
     },
   })
     .then(routineData => {
@@ -32,7 +30,6 @@ router.get("/", withAuth, (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
-    // const logs = logData.map(log => log.get({ plain: true }));
 });
 
 console.log("hi");
