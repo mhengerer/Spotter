@@ -1,10 +1,13 @@
-// needs helper function to get date and date in a week for range in homeroutes
 module.exports.todaysDate = () => {
-    new Date(Date.now());
+    const date = new Date(Date.now());
+    const parts = date.toISOString().split('T');
+    return `${parts[0]} ${parts[1].substring(0, 8)}`;
 };
 
 module.exports.lastDayWeek = () => {
-    new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
+    const date = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+    const parts = date.toISOString().split('T');
+    return `${parts[0]} ${parts[1].substring(0, 8)}`;
 };
 
 // const today = 

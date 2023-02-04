@@ -11,9 +11,9 @@ router.get("/", withAuth, (req, res) => {
     where: {
       id: req.session.user_id,
       
-      // scheduled: {
-      //     [Op.between]: [todaysDate, lastDayWeek],
-      // },
+      scheduled: {
+          [Op.between]: [todaysDate(), lastDayWeek()],
+      },
     },
   })
     .then(routineData => {
@@ -23,7 +23,7 @@ router.get("/", withAuth, (req, res) => {
       res.render("homepage", {
         // render weekly routing with users info
         // logged_in will maybe be changed
-        routines,
+        
         logged_in: req.session.logged_in,
       });
       console.log("Reached line 30");
