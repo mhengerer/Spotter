@@ -11,9 +11,9 @@ router.get("/", withAuth, (req, res) => {
       // NEEDS TO CHANGE TO .session 
       id: req.body.user_id,
       
-      scheduled: {
-          [Op.between]: [todaysDate, lastDayWeek],
-      },
+      // scheduled: {
+      //     [Op.between]: [todaysDate, lastDayWeek],
+      // },
     },
   })
     .then(routineData => {
