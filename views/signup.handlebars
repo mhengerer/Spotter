@@ -65,10 +65,9 @@ form.addEventListener('submit', async (e) => {
     const email = emailInput.value;
     const password = passwordInput.value;
 
-    console.log(name, email, password);
+    console.log(email);
 
-
-    const response = await fetch('/api/users', {
+    const response = await fetch('/api/users/', {
         method: 'POST',
         body: JSON.stringify({ email, password, name }),
         headers: { 'Content-Type': 'application/json' },
