@@ -1,0 +1,39 @@
+:root {
+    --dark-purple: #261C2C;
+    --med-purple: #3E2C41;
+    --light-purple: #5C527F;
+    --gold: #E6B325;
+    --hover-yellow:#FADA9D;
+    --text-color: white;
+   }
+   
+   h1 {
+    text-align:center;
+    color:#E6B325;
+   }
+
+   html,
+body {
+    background:#261C2C;
+}
+#inner-rectangle{
+    height: 74px;
+    background: #3E2C41;
+    text-align: center;
+    font-size: 25px;
+   
+}
+
+#outer-rectangle{
+    --light-purple: #5C527F;
+    font-size: xx-large;
+    width:763px;
+    height: 703px; 
+    left: 343px;
+    top: 241px; 
+}
+#link-text{
+    font-size: large;
+    color: #ffffff;
+    text-decoration: underline;
+}
