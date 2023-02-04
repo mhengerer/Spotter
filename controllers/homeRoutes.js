@@ -9,8 +9,7 @@ router.get("/", withAuth, (req, res) => {
   console.log("Reached line 9");
   Routine.findAll({
     where: {
-      // NEEDS TO CHANGE TO .session 
-      id: req.body.user_id,
+      id: req.session.user_id,
       
       // scheduled: {
       //     [Op.between]: [todaysDate, lastDayWeek],
