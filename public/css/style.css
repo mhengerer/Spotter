@@ -66,3 +66,7 @@ h2 {
 .card-desc {
     color: var(--gold);
 }
+
+.new-routine-icon:hover{
+    cursor: pointer;
+}

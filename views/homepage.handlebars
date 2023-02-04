@@ -32,9 +32,9 @@
 
 
 {{#if mondayRoutine}}
-       <p class="card-desc text-base mb-4">
-          {{mondayRoutine.name}}      
-       </p>
+        <a class="new-routine-link card-desc text-base mb-4" href="#" data-day="Monday" data-routine_id="{{mondayRoutine.id}}">
+          {{mondayRoutine.name}}
+       </a>
     {{else}}
        <iconify-icon
           class="justify-center new-routine-icon"
@@ -60,9 +60,9 @@
         <h5 class="card-header text-xl font-medium mb-2">Tuesday</h5>
         
 {{#if tuesdayRoutine}}
-       <p class="card-desc text-base mb-4">
+        <a class="new-routine-link card-desc text-base mb-4" href="#" data-day="Tuesday" data-routine_id="{{tuesdayRoutine.id}}">
           {{tuesdayRoutine.name}}      
-       </p>
+       </a>
     {{else}}
        <iconify-icon
           class="justify-center new-routine-icon"
@@ -87,9 +87,9 @@
         <h5 class="card-header text-xl font-medium mb-2">Wednesday</h5>
        
 {{#if wednesdayRoutine}}
-       <p class="card-desc text-base mb-4">
+        <a class="new-routine-link card-desc text-base mb-4" href="#" data-day="Wednesday" data-routine_id="{{wednesdayRoutine.id}}">
           {{wednesdayRoutine.name}}      
-       </p>
+       </a>
     {{else}}
        <iconify-icon
           class="justify-center new-routine-icon"
@@ -114,9 +114,9 @@
         <h5 class="card-header text-xl font-medium mb-2">Thursday</h5>
        
 {{#if thursdayRoutine}}
-       <p class="card-desc text-base mb-4">
+        <a class="new-routine-link card-desc text-base mb-4" href="#" data-day="Thursday" data-routine_id="{{thursdayRoutine.id}}">
           {{thursdayRoutine.name}}      
-       </p>
+       </a>
     {{else}}
        <iconify-icon
           class="justify-center new-routine-icon"
@@ -140,9 +140,9 @@
         <h5 class="card-header text-xl font-medium mb-2">Friday</h5>
           
 {{#if fridayRoutine}}
-       <p class="card-desc text-base mb-4">
+        <a class="new-routine-link card-desc text-base mb-4" href="#" data-day="Friday" data-routine_id="{{fridayRoutine.id}}">
           {{fridayRoutine.name}}      
-       </p>
+       </a>
     {{else}}
        <iconify-icon
           class="justify-center new-routine-icon"
@@ -166,9 +166,9 @@
         <h5 class="card-header text-xl font-medium mb-2">Saturday</h5>
          
 {{#if saturdayRoutine}}
-       <p class="card-desc text-base mb-4">
+        <a class="new-routine-link card-desc text-base mb-4" href="#" data-day="Saturday" data-routine_id="{{saturdayRoutine.id}}">
           {{saturdayRoutine.name}}      
-       </p>
+       </a>
     {{else}}
        <iconify-icon
           class="justify-center new-routine-icon"
@@ -192,9 +192,9 @@
         <h5 class="card-header text-xl font-medium mb-2">Sunday</h5>
        
 {{#if sundayRoutine}}
-       <p class="card-desc text-base mb-4">
+       <a class="new-routine-link card-desc text-base mb-4" href="#" data-day="Sunday" data-routine_id="{{sundayRoutine.id}}">
           {{sundayRoutine.name}}      
-       </p>
+       </a>
     {{else}}
        <iconify-icon
           class="justify-center new-routine-icon"
@@ -211,7 +211,19 @@
 </div>
 
 <script>
+  const links = document.querySelectorAll('.new-routine-link');
 
+  if (links.length) {
+    links.forEach(function(link) {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const day = this.dataset.day;
+        const routineId = this.dataset.routine_id;
+        console.log(day, routineId);
+        document.location.replace(`/editRoutine?day=${day}&routineId=${routineId}`);
+      });
+    });
+  }
     const icons = document.querySelectorAll('.new-routine-icon');
 
   if (icons.length) {
