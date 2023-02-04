@@ -62,30 +62,14 @@ form.addEventListener('submit', async (e) => {
 });
 
 
-//exercise.html LOGOUT (button id="logout-btn"), + BUTTON for ROUTINE DAY OF THE WEEK (button), PREVIOUS WORKOUTS (? a or button)
-const signout = async () => {
-    const response = await fetch('/api/users/signout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-    });
-  
-    if (response.ok) {
-      document.location.replace('/login');
-    } else {
-      alert(response.statusText);
-    }
-  };
-  
-  document
-  .querySelector('#logout-btn')
-  .addEventListener('click', signout);
+
 
 
 //page 4 BACK TO WEEKLY ROUTINE (? a or button)
 
 
 
-//page 5 HOME (button), + BUTTON for EXERCISES (button)
+//page 5 HOME (button), + BUTTON for EXERCISES (button), Learn Movement (id="link-text" href="#">Learn Movement)
 document
 .querySelector("#home-button")
 .addEventListener("click", function() {
@@ -95,7 +79,7 @@ document
 
 
 const addButton = document.querySelector("#add-button");
-const exercises = ['Split Squat', 'Belgium Squat', 'Romanian Deadlift', 'Goblet Squats', 'Reverse Lunge', 'Leg Extension', 'Calf Raise'];
+//const exercises = ['Split Squat', 'Belgium Squat', 'Romanian Deadlift', 'Goblet Squats', 'Reverse Lunge', 'Leg Extension', 'Calf Raise'];
 const selectedDay = document.querySelector("#selected-day");
 
 addButton.addEventListener("click", function() {
