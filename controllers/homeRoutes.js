@@ -32,10 +32,6 @@ router.get("/", withAuth, (req, res) => {
     });
 });
 
-console.log("hi");
-
-console.log(routineData);
-
 router.get("/routine/:id", withAuth, async (req, res) => {
   try {
     const routineData = await Routine.findByPk(req.params.id, {
