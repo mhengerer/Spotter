@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Routine, Log } = require('../Models');
 const withAuth = require('../utils/auth');
 const { Op } = require("sequelize");
-const { today, lastDay } = require('../utils/helpers');
+const { today, lastDay, mondayThisWeek, sundayThisWeek } = require('../utils/helpers');
 
 
 // this takes user to portal login if they arent already logged in 
@@ -19,21 +19,63 @@ router.get('/', withAuth, async (req, res) => {
             // need to query all routines created by logged in user that 
             where: {
                 // isnt defined
-                id: req.session.user_id,
+                user_id: req.session.user_id,
                 // date range 
                 scheduled: {
-                    [Op.between]: [today, lastDay],
+                    [Op.between]: [mondayThisWeek, sundayThisWeek],
                 },
 
             },
         });
 
         const routines = routineData.map((routine) => routine.get({ plain: true }));
-        
+
+        const mondayRoutine = routines.find(routine => {
+            const date = new Date(routine.scheduled);
+            return date.getUTCDay() === 1;
+          });
+          
+          const tuesdayRoutine = routines.find(routine => {
+            const date = new Date(routine.scheduled);
+            return date.getUTCDay() === 2;
+          });
+          
+          const wednesdayRoutine = routines.find(routine => {
+            const date = new Date(routine.scheduled);
+            return date.getUTCDay() === 3;
+          });
+          
+          const thursdayRoutine = routines.find(routine => {
+            const date = new Date(routine.scheduled);
+            return date.getUTCDay() === 4;
+          });
+          
+          const fridayRoutine = routines.find(routine => {
+            const date = new Date(routine.scheduled);
+            return date.getUTCDay() === 5;
+          });
+          
+          const saturdayRoutine = routines.find(routine => {
+            const date = new Date(routine.scheduled);
+            return date.getUTCDay() === 6;
+          });
+          
+          const sundayRoutine = routines.find(routine => {
+            const date = new Date(routine.scheduled);
+            return date.getUTCDay() === 0;
+          });          
+
         res.render('homepage', {
             // render weekly routing with users info
             // logged_in will maybe be changed
             routines,
+            mondayRoutine,
+            tuesdayRoutine,
+            wednesdayRoutine,
+            thursdayRoutine,
+            fridayRoutine,
+            saturdayRoutine,
+            sundayRoutine,
             logged_in: req.session.logged_in
         });
     } catch (err) {
