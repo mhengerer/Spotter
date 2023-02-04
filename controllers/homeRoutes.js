@@ -17,14 +17,16 @@ router.get("/", withAuth, (req, res) => {
     },
   })
     .then(routineData => {
+      console.log("Reached line 20");
       const routines = routineData.map(routine => routine.get({ plain: true }));
-
+      console.log("Reached line 22");
       res.render("homepage", {
         // render weekly routing with users info
         // logged_in will maybe be changed
         routines,
         logged_in: req.session.logged_in,
       });
+      console.log("Reached line 29");
     })
     .catch(err => {
       console.log(err);
