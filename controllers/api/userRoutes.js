@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const { User } = require("../../Models/");
-const withAuth = require('../../utils/auth');
+const withAuth = require("../../utils/auth");
 
-router.post("/", async (req, res) => {
+router.post("/signup", async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
@@ -18,34 +18,30 @@ router.post("/", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
+  const userData = await User.findOne({ where: { email: req.body.email } });
 
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
-      return;
-    }
-
-    const validPassword = await userData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: "Incorrect email or password, please try again" });
-      return;
-    }
-
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.json({ user: userData, message: "You are now logged in!" });
-    });
-  } catch (err) {
-    res.status(400).json(err);
+  if (!userData) {
+    res
+      .status(401)
+      .json({ message: "Incorrect email or password, please try again" });
+    return;
   }
+
+  const validPassword = await userData.checkPassword(req.body.password);
+
+  if (!validPassword) {
+    res
+      .status(402)
+      .json({ message: "Incorrect username or password, please try again" });
+    return;
+  }
+
+  req.session.save(() => {
+    req.session.user_id = userData.id;
+    req.session.logged_in = true;
+
+    res.json({ user: userData, message: "You are now logged in!" });
+  });
 });
 
 router.post("/logout", (req, res) => {
@@ -58,18 +54,18 @@ router.post("/logout", (req, res) => {
   }
 });
 
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-      const userData = await User.findAll();
+    const userData = await User.findAll();
 
-      if (!userData) {
-          res.status(404).json({ message: 'Cant Find Users' });
-          return;
-      }
+    if (!userData) {
+      res.status(404).json({ message: "Cant Find Users" });
+      return;
+    }
 
-      res.status(200).json(userData);
+    res.status(200).json(userData);
   } catch (err) {
-      res.status(500).json(err);
+    res.status(500).json(err);
   }
 });
 
