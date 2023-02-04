@@ -11,12 +11,12 @@
         alt="spotter logo of a gold stick man raising barbell"
       />
       <div class="mb-3">
-        <label>Username</label>
+        <label>Email</label>
         <br />
         <input
           id="email-login"
           type="text"
-          placeholder="Type your username"
+          placeholder="Type your email"
           class="pl-3 pt-3 pb-3 mb-3 w-full rounded-lg"
         />
       </div>
@@ -51,8 +51,8 @@
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
    
-    const email = emailInput.value;
-    const password = passwordInput.value;
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
 
     console.log(email);
 
