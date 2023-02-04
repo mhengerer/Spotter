@@ -24,12 +24,29 @@
     >
       <div
         class="p-20 flex flex-col justify-center items-center"
-        id="tuesday-card"
+        id="monday-card"
       >
         <h5
           class="card-header text-xl leading-tight font-medium mb-2"
         >Monday</h5>
-        <p class="card-desc text-base mb-4">Leg Day</p>
+
+
+{{#if mondayRoutine}}
+        <a class="new-routine-link card-desc text-base mb-4" href="#" data-day="Monday" data-routine_id="{{mondayRoutine.id}}">
+          {{mondayRoutine.name}}
+       </a>
+    {{else}}
+       <iconify-icon
+          class="justify-center new-routine-icon"
+          icon="el:plus-sign"
+          style="color: #e6b325;"
+          width="50"
+          height="50"
+          data-day="Monday"
+        ></iconify-icon>
+    {{/if}}
+
+        
       </div>
     </div>
     <div
@@ -41,7 +58,22 @@
         id="tuesday-card"
       >
         <h5 class="card-header text-xl font-medium mb-2">Tuesday</h5>
-        <p class="card-desc text-base mb-4">Rest Day</p>
+        
+{{#if tuesdayRoutine}}
+        <a class="new-routine-link card-desc text-base mb-4" href="#" data-day="Tuesday" data-routine_id="{{tuesdayRoutine.id}}">
+          {{tuesdayRoutine.name}}      
+       </a>
+    {{else}}
+       <iconify-icon
+          class="justify-center new-routine-icon"
+          icon="el:plus-sign"
+          style="color: #e6b325;"
+          width="50"
+          height="50"
+          data-day="Tuesday"
+        ></iconify-icon>
+    {{/if}}
+
       </div>
     </div>
     <div
@@ -53,13 +85,22 @@
         id="wednesday-card"
       >
         <h5 class="card-header text-xl font-medium mb-2">Wednesday</h5>
-        <iconify-icon
-          class="justify-center"
+       
+{{#if wednesdayRoutine}}
+        <a class="new-routine-link card-desc text-base mb-4" href="#" data-day="Wednesday" data-routine_id="{{wednesdayRoutine.id}}">
+          {{wednesdayRoutine.name}}      
+       </a>
+    {{else}}
+       <iconify-icon
+          class="justify-center new-routine-icon"
           icon="el:plus-sign"
           style="color: #e6b325;"
           width="50"
           height="50"
+          data-day="Wednesday"
         ></iconify-icon>
+    {{/if}}
+
       </div>
     </div>
     <div
@@ -71,13 +112,21 @@
         id="thursday-card"
       >
         <h5 class="card-header text-xl font-medium mb-2">Thursday</h5>
-        <iconify-icon
-          class="justify-center"
+       
+{{#if thursdayRoutine}}
+        <a class="new-routine-link card-desc text-base mb-4" href="#" data-day="Thursday" data-routine_id="{{thursdayRoutine.id}}">
+          {{thursdayRoutine.name}}      
+       </a>
+    {{else}}
+       <iconify-icon
+          class="justify-center new-routine-icon"
           icon="el:plus-sign"
           style="color: #e6b325;"
           width="50"
           height="50"
+          data-day="Thursday"
         ></iconify-icon>
+    {{/if}}
       </div>
     </div>
     <div
@@ -89,13 +138,21 @@
         id="friday-card"
       >
         <h5 class="card-header text-xl font-medium mb-2">Friday</h5>
-        <iconify-icon
-          class="justify-center"
+          
+{{#if fridayRoutine}}
+        <a class="new-routine-link card-desc text-base mb-4" href="#" data-day="Friday" data-routine_id="{{fridayRoutine.id}}">
+          {{fridayRoutine.name}}      
+       </a>
+    {{else}}
+       <iconify-icon
+          class="justify-center new-routine-icon"
           icon="el:plus-sign"
           style="color: #e6b325;"
           width="50"
           height="50"
+          data-day="Friday"
         ></iconify-icon>
+    {{/if}}
       </div>
     </div>
     <div
@@ -107,13 +164,21 @@
         id="saturday-card"
       >
         <h5 class="card-header text-xl font-medium mb-2">Saturday</h5>
-        <iconify-icon
-          class="justify-center"
+         
+{{#if saturdayRoutine}}
+        <a class="new-routine-link card-desc text-base mb-4" href="#" data-day="Saturday" data-routine_id="{{saturdayRoutine.id}}">
+          {{saturdayRoutine.name}}      
+       </a>
+    {{else}}
+       <iconify-icon
+          class="justify-center new-routine-icon"
           icon="el:plus-sign"
           style="color: #e6b325;"
           width="50"
           height="50"
+          data-day="Saturday"
         ></iconify-icon>
+    {{/if}}
       </div>
     </div>
     <div
@@ -125,20 +190,51 @@
         id="sunday-card"
       >
         <h5 class="card-header text-xl font-medium mb-2">Sunday</h5>
-        <iconify-icon
-          class="justify-center"
+       
+{{#if sundayRoutine}}
+       <a class="new-routine-link card-desc text-base mb-4" href="#" data-day="Sunday" data-routine_id="{{sundayRoutine.id}}">
+          {{sundayRoutine.name}}      
+       </a>
+    {{else}}
+       <iconify-icon
+          class="justify-center new-routine-icon"
           icon="el:plus-sign"
           style="color: #e6b325;"
           width="50"
           height="50"
+          data-day="Sunday"
         ></iconify-icon>
+    {{/if}}
       </div>
     </div>
   </div>
 </div>
 
 <script>
+  const links = document.querySelectorAll('.new-routine-link');
 
+  if (links.length) {
+    links.forEach(function(link) {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const day = this.dataset.day;
+        const routineId = this.dataset.routine_id;
+        console.log(day, routineId);
+        document.location.replace(`/editRoutine?day=${day}&routineId=${routineId}`);
+      });
+    });
+  }
+    const icons = document.querySelectorAll('.new-routine-icon');
+
+  if (icons.length) {
+    icons.forEach(function(icon) {
+      icon.addEventListener('click', function() {
+        const day = this.dataset.day;
+        document.location.replace(`/editRoutine?day=${day}`);
+      });
+    });
+  }
+ 
   //exercise.html LOGOUT (button id="logout-btn"), + BUTTON for ROUTINE DAY OF THE WEEK (button), PREVIOUS WORKOUTS (? a or button)
 const logout = async () => {
     const response = await fetch('/api/users/logout', {
