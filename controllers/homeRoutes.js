@@ -6,30 +6,32 @@ const { todaysDate, lastDayWeek } = require("../utils/helpers");
 
 // this takes user to portal login if they arent already logged in
 router.get("/", withAuth, (req, res) => {
+  console.log("Reached line 9");
   Routine.findAll({
     where: {
-      // NEEDS TO CHANGE TO .session 
-      id: req.body.user_id,
+      id: req.session.user_id,
       
-      scheduled: {
-          [Op.between]: [todaysDate, lastDayWeek],
-      },
+      // scheduled: {
+      //     [Op.between]: [todaysDate, lastDayWeek],
+      // },
     },
   })
     .then(routineData => {
+      console.log("Reached line 21");
       const routines = routineData.map(routine => routine.get({ plain: true }));
-
+      console.log("Reached line 23");
       res.render("homepage", {
         // render weekly routing with users info
         // logged_in will maybe be changed
         routines,
         logged_in: req.session.logged_in,
       });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
+      console.log("Reached line 30");
     });
+    // .catch(err => {
+    //   console.log(err);
+    //   res.status(500).json(err);
+    // });
 });
 
 router.get("/routine/:id", withAuth, async (req, res) => {
