@@ -99,6 +99,7 @@ router.get("/routine/:id", withAuth, async (req, res) => {
     res.render("routine", {
       routine,
       logged_in: req.session.logged_in,
+      dayOfTheWeek
     });
   } catch (err) {
     res.status(500).json(err);
