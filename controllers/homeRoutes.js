@@ -4,7 +4,7 @@ const withAuth = require("../utils/auth");
 const { Op } = require("sequelize");
 const { today, lastDay, mondayThisWeek, sundayThisWeek } = require('../utils/helpers');
 
-
+// TODO: Identify if dates are actually the ones being returned. 
 // this takes user to portal login if they arent already logged in 
 router.get('/', withAuth, async (req, res) => {
     try {
@@ -105,19 +105,9 @@ router.get("/routine/:id", withAuth, async (req, res) => {
   }
 });
 
-router.get("/log/:id", withAuth, async (req, res) => {
-  try {
-    const logData = await Log.findAll({
-      where: {
-        id: req.params.user_id,
-      },
-    });
-
-    const log = logData.get({ plain: true });
-
-    res.render("log", {
-      ...log,
-      logged_in: true,
+router.get("/routine", withAuth, async (req, res) => {
+  try {res.render("routine", {
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -138,6 +128,26 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+// TODO: Add /editRoutines route
+
+// router.get("/log/:id", withAuth, async (req, res) => {
+//   try {
+//     const logData = await Log.findAll({
+//       where: {
+//         id: req.params.user_id,
+//       },
+//     });
+
+//     const log = logData.get({ plain: true });
+
+//     res.render("log", {
+//       ...log,
+//       logged_in: true,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 module.exports = router;
 
