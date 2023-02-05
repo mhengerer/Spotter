@@ -16,6 +16,7 @@ const deleteButtons = document.querySelectorAll(".delete-button");
 
 movementItems.forEach((el) =>
   el.addEventListener("click", () => {
+    //TODO: update source
     let data = JSON.parse(localStorage.getItem("workout"));
     if (data !== null) {
       data.push(el.id);

@@ -22,9 +22,8 @@ router.get('/', withAuth, async (req, res) => {
                 user_id: req.session.user_id,
                 // date range 
                 scheduled: {
-                    [Op.between]: [mondayThisWeek, sundayThisWeek],
+                    [Op.between]: [today, lastDay],
                 },
-
             },
         });
 
@@ -130,6 +129,8 @@ router.get('/signup', (req, res) => {
 
 // TODO: Add /editRoutines route
 
+module.exports = router;
+
 // router.get("/log/:id", withAuth, async (req, res) => {
 //   try {
 //     const logData = await Log.findAll({
@@ -149,5 +150,4 @@ router.get('/signup', (req, res) => {
 //   }
 // });
 
-module.exports = router;
 
