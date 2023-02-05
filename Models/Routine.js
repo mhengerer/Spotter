@@ -24,6 +24,7 @@ Routine.init(
         model: "user",
         key: "id",
       },
+      allowNull: false
     },
     scheduled: {
       type: DataTypes.DATE,
