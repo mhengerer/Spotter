@@ -105,6 +105,15 @@ router.get("/routine/:id", withAuth, async (req, res) => {
   }
 });
 
+router.get("/routine", withAuth, async (req, res) => {
+  try {res.render("routine", {
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get("/log/:id", withAuth, async (req, res) => {
   try {
     const logData = await Log.findAll({

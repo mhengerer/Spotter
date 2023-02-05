@@ -1,0 +1,135 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: { colors: { 
+    primary: "#E6B325",
+    secondary: "#3E2C41", 
+    tertiary: "#261C2C", 
+    quarternary: "#5C527F", 
+    }, }, }, };
+</script>
+
+<div>
+  <!-- Navigation  -->
+  <nav class="bg-secondary p-5">
+    <div class="rounded-full bg-primary text-black font-bold px-10 py-2 w-fit">
+      <div>Home</div>
+    </div>
+  </nav>
+  <!-- Content  -->
+  <div
+    class="p-5 w-full p-5 flex flex-col space-y-5 lg:space-y-0 lg:flex-row lg:space-x-12 bg-tertiary h-full"
+  >
+    <!-- Col 1  -->
+    <div class="flex flex-col space-y-2 w-full items-center">
+      <div class="text-primary font-semibold text-[1.5rem]">Monday</div>
+      <div
+        class="bg-quarternary p-3 text-white font-bold w-full text-center text-[1.5rem]"
+      >
+        Leg Day
+      </div>
+      <div class="workout-list w-full flex flex-col space-y-3"></div>
+    </div>
+    <!-- Col 2  -->
+    <div class="w-full p-2 bg-quarternary h-fit">
+      <input
+        class="bg-primary w-full p-3 outline-none placeholder:text-secondary placeholder:font-semibold"
+        placeholder="Search Movements"
+      />
+      <div class="movement-list mt-2 flex flex-col space-y-3">
+        <!-- List  -->
+        <div class="flex items-center justify-between p-3 bg-secondary">
+          <div class="w-[20%]"></div>
+          <div class="text-white text-center">
+            <div class="font-bold text-[1.75rem]">Split Squat</div>
+            <div class="underline text-gray-300">learn movement</div>
+          </div>
+          <div
+            id="Split Squat"
+            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
+          >
+            <img class="w-[40px] h-[40px]" src="images/add.svg" alt="" />
+          </div>
+        </div>
+        <div class="flex items-center justify-between p-3 bg-secondary">
+          <div class="w-[20%]"></div>
+          <div class="text-white text-center">
+            <div class="font-bold text-[1.75rem]">Belgium Squat</div>
+            <div class="underline text-gray-300">learn movement</div>
+          </div>
+          <div
+            id="Belgium Squat"
+            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
+          >
+            <img class="w-[40px] h-[40px]" src="images/add.svg" alt="" />
+          </div>
+        </div>
+        <div class="flex items-center justify-between p-3 bg-secondary">
+          <div class="w-[20%]"></div>
+          <div class="text-white text-center">
+            <div class="font-bold text-[1.75rem]">Romanian Deadlift</div>
+            <div class="underline text-gray-300">learn movement</div>
+          </div>
+          <div
+            id="Romanian Deadlift"
+            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
+          >
+            <img class="w-[40px] h-[40px]" src="images/add.svg" alt="" />
+          </div>
+        </div>
+        <div class="flex items-center justify-between p-3 bg-secondary">
+          <div class="w-[20%]"></div>
+          <div class="text-white text-center">
+            <div class="font-bold text-[1.75rem]">Goblet Squat</div>
+            <div class="underline text-gray-300">learn movement</div>
+          </div>
+          <div
+            id="Goblet Squat"
+            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
+          >
+            <img class="w-[40px] h-[40px]" src="images/add.svg" alt="" />
+          </div>
+        </div>
+        <div class="flex items-center justify-between p-3 bg-secondary">
+          <div class="w-[20%]"></div>
+          <div class="text-white text-center">
+            <div class="font-bold text-[1.75rem]">Reverse Lunge</div>
+            <div class="underline text-gray-300">learn movement</div>
+          </div>
+          <div
+            id="Reverse Lunge"
+            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
+          >
+            <img class="w-[40px] h-[40px]" src="images/add.svg" alt="" />
+          </div>
+        </div>
+        <div class="flex items-center justify-between p-3 bg-secondary">
+          <div class="w-[20%]"></div>
+          <div class="text-white text-center">
+            <div class="font-bold text-[1.75rem]">Leg Extension</div>
+            <div class="underline text-gray-300">learn movement</div>
+          </div>
+          <div
+            id="Leg Extension"
+            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
+          >
+            <img class="w-[40px] h-[40px]" src="images/add.svg" alt="" />
+          </div>
+        </div>
+        <div class="flex items-center justify-between p-3 bg-secondary">
+          <div class="w-[20%]"></div>
+          <div class="text-white text-center">
+            <div class="font-bold text-[1.75rem]">Calf Raise</div>
+            <div class="underline text-gray-300">learn movement</div>
+          </div>
+          <div
+            id="Calf Raise"
+            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
+          >
+            <img class="w-[40px] h-[40px]" src="images/add.svg" alt="" />
+          </div>
+        </div>
+        <!-- List End  -->
+      </div>
+    </div>
+  </div>
+</div>
