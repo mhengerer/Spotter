@@ -84,6 +84,7 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get("/routine/:id", withAuth, async (req, res) => {
   try {
+    const dayOfTheWeek = req.query.day; 
     const routineData = await Routine.findByPk(req.params.id, {
       include: [
         {
@@ -105,7 +106,26 @@ router.get("/routine/:id", withAuth, async (req, res) => {
 });
 
 router.get("/routine", withAuth, async (req, res) => {
-  try {res.render("routine", {
+  try {
+    const routineBody = {
+      user_id: req.session.user_id, 
+      // Fix this
+      name: "Routine ID"
+    };
+
+    const routineData = await fetch("/api/routines", {
+      method: 'POST', 
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(routineBody)
+    });
+
+    const routine = routineData.get({ plain: true });
+
+    res.render("routine", {
+      routine, 
       logged_in: req.session.logged_in,
     });
   } catch (err) {

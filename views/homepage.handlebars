@@ -220,7 +220,7 @@
         const day = this.dataset.day;
         const routineId = this.dataset.routine_id;
         console.log(day, routineId);
-        document.location.replace(`/editRoutine?day=${day}&routineId=${routineId}`);
+        document.location.replace(`/routine/${routineId}?day=${day}`);
       });
     });
   }
@@ -230,7 +230,7 @@
     icons.forEach(function(icon) {
       icon.addEventListener('click', function() {
         const day = this.dataset.day;
-        document.location.replace(`/editRoutine?day=${day}`);
+        document.location.replace(`/routine?day=${day}`);
       });
     });
   }
