@@ -19,17 +19,17 @@ const icons = document.querySelectorAll('#plus-btn');
 if (icons.length) {
     icons.forEach(function (icon) {
         icon.addEventListener('click', function () {
-            // const day = this.dataset.day;
+            const routineId = this.dataset.routine_id;
             const response = fetch(`/api/routines`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ 'name': 'littteraly annnything', "description": "A routine that focuses on cardiovascular fitness", 'scheduled': '2021-01-01T05:00:00.000Z' }),
-            }).then(response => response.json())
-                .then(routine => {
-                    if (routine.ok) {
-                        document.location.replace('/routine');
+            })
+                .then(response => {
+                    if (response.ok) {
+                        document.location.replace(`/routine`);
                     } else {
                         console.log(response.statusText);
                     }
