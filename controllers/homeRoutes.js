@@ -106,7 +106,7 @@ router.get("/routine", withAuth, async (req, res) => {
 
   const existingExercises = exerciseData.map((exercise) => exercise.get({ plain: true }));
 
-  res.redirect("routine", {
+  res.render("routine", {
     routine,
     existingExercises,
     logged_in: req.session.logged_in,
