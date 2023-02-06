@@ -1,13 +1,3 @@
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = { theme: { extend: { colors: { 
-    primary: "#E6B325",
-    secondary: "#3E2C41", 
-    tertiary: "#261C2C", 
-    quarternary: "#5C527F", 
-    }, }, }, };
-</script>
-
 <div>
   <!-- Navigation  -->
   <nav class="bg-secondary p-5">
@@ -23,117 +13,382 @@
   >
     <!-- Col 1  -->
     <div class="flex flex-col space-y-2 w-full items-center">
-      <div class="text-primary font-semibold text-[1.5rem]">Monday</div>
+      <div class="text-primary font-semibold text-[2rem]">{{dayOfTheWeek}}</div>
+
+
+
+{{#if routine}}
       <div
         class="bg-quarternary p-3 text-white font-bold w-full text-center text-[1.5rem]"
       >
-        Leg Day
+        {{routine.name}}
       </div>
+    {{else}}
+       {{!-- input to added a routine name with a submit button to the right side,
+        when this submit button is clicked a routine should be created and the page needs 
+        to be rerendered with the routine id --}}
+          <form id="routineNameForm">
+            <input class="newRoutineInputs" type="text" id="routine-name" placeholder="Enter routine name">
+            <input class="newRoutineInputs" type="text" id="routine-desc" placeholder="Enter routine description">
+            <button class="rounded-full bg-primary text-black font-bold px-10 py-2 w-fit" type="submit">Create Routine</button>
+          </form>
+    {{/if}}
+
+
+
       <div class="workout-list w-full flex flex-col space-y-3"></div>
     </div>
     <!-- Col 2  -->
     <div class="w-full p-2 bg-quarternary h-fit">
       <input
+         id="searchTerm"
         class="bg-primary w-full p-3 outline-none placeholder:text-secondary placeholder:font-semibold"
         placeholder="Search Movements"
       />
+      <button id="searchBtn">Search</button>
       <div class="movement-list mt-2 flex flex-col space-y-3">
         <!-- List  -->
-        <div class="flex items-center justify-between p-3 bg-secondary">
-          <div class="w-[20%]"></div>
-          <div class="text-white text-center">
-            <div class="font-bold text-[1.75rem]">Split Squat</div>
-            <div class="underline text-gray-300">learn movement</div>
-          </div>
-          <div
-            id="Split Squat"
-            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
-          >
-            <img class="w-[40px] h-[40px]" src="images/add.svg" alt="" />
-          </div>
-        </div>
-        <div class="flex items-center justify-between p-3 bg-secondary">
-          <div class="w-[20%]"></div>
-          <div class="text-white text-center">
-            <div class="font-bold text-[1.75rem]">Belgium Squat</div>
-            <div class="underline text-gray-300">learn movement</div>
-          </div>
-          <div
-            id="Belgium Squat"
-            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
-          >
-            <img class="w-[40px] h-[40px]" src="images/add.svg" alt="" />
-          </div>
-        </div>
-        <div class="flex items-center justify-between p-3 bg-secondary">
-          <div class="w-[20%]"></div>
-          <div class="text-white text-center">
-            <div class="font-bold text-[1.75rem]">Romanian Deadlift</div>
-            <div class="underline text-gray-300">learn movement</div>
-          </div>
-          <div
-            id="Romanian Deadlift"
-            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
-          >
-            <img class="w-[40px] h-[40px]" src="images/add.svg" alt="" />
-          </div>
-        </div>
-        <div class="flex items-center justify-between p-3 bg-secondary">
-          <div class="w-[20%]"></div>
-          <div class="text-white text-center">
-            <div class="font-bold text-[1.75rem]">Goblet Squat</div>
-            <div class="underline text-gray-300">learn movement</div>
-          </div>
-          <div
-            id="Goblet Squat"
-            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
-          >
-            <img class="w-[40px] h-[40px]" src="images/add.svg" alt="" />
-          </div>
-        </div>
-        <div class="flex items-center justify-between p-3 bg-secondary">
-          <div class="w-[20%]"></div>
-          <div class="text-white text-center">
-            <div class="font-bold text-[1.75rem]">Reverse Lunge</div>
-            <div class="underline text-gray-300">learn movement</div>
-          </div>
-          <div
-            id="Reverse Lunge"
-            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
-          >
-            <img class="w-[40px] h-[40px]" src="images/add.svg" alt="" />
-          </div>
-        </div>
-        <div class="flex items-center justify-between p-3 bg-secondary">
-          <div class="w-[20%]"></div>
-          <div class="text-white text-center">
-            <div class="font-bold text-[1.75rem]">Leg Extension</div>
-            <div class="underline text-gray-300">learn movement</div>
-          </div>
-          <div
-            id="Leg Extension"
-            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
-          >
-            <img class="w-[40px] h-[40px]" src="images/add.svg" alt="" />
-          </div>
-        </div>
-        <div class="flex items-center justify-between p-3 bg-secondary">
-          <div class="w-[20%]"></div>
-          <div class="text-white text-center">
-            <div class="font-bold text-[1.75rem]">Calf Raise</div>
-            <div class="underline text-gray-300">learn movement</div>
-          </div>
-          <div
-            id="Calf Raise"
-            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
-          >
-            <img class="w-[40px] h-[40px]" src="images/add.svg" alt="" />
-          </div>
-        </div>
+
+
+        
         <!-- List End  -->
       </div>
     </div>
   </div>
 </div>
 
-<script src="js/routineEdit.js"></script>
+<style>
+
+  #routineNameForm{
+    width: 80%;
+  }
+  .newRoutineInputs{
+    display: block;
+    font-size: large;
+    margin: 20px 0px;
+    width: 100%;
+    padding: 0px 10px;
+  }
+  #searchBtn{
+        padding: inherit;
+    color: antiquewhite;
+  }
+</style>
+
+{{!-- <script src="js/routineEdit.js"></script> --}}
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+
+
+buildMovementList();
+let myExercises = [];
+let exercises = [];
+const routineId = window.location.pathname.substr(9);
+
+  document.getElementById("searchBtn").addEventListener("click", function() {
+  const searchTerm = document.getElementById("searchTerm").value;
+  if (exercises){
+    console.log("asdasdasdasdas");
+    console.log(searchTerm);
+    console.log(exercises);
+  const filteredExercises = exercises.filter(exercise => exercise.name.includes(searchTerm));
+  // Render the filtered data using Handlebars
+      console.log(filteredExercises);
+
+  const filteredExerciseElements = createExerciseElements(filteredExercises);
+
+const movementListEl = document.getElementsByClassName("movement-list");
+const movementListContainer = movementListEl[0];
+
+while (movementListContainer.firstChild) {
+  movementListContainer.removeChild(movementListContainer.firstChild);
+}
+
+movementListContainer.appendChild(filteredExerciseElements);
+  }
+});
+
+//getExercises();
+getExercisesByRoutineId();
+const searchParams = new URLSearchParams(window.location.search);
+const dayValue = searchParams.get("day");
+
+let dateOfDay = getDateForDay(dayValue);
+console.log("This is the date of the day",dateOfDay);
+
+
+
+const routineNameForm = document.querySelector('#routineNameForm');
+
+if(routineNameForm){
+
+  routineNameForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const routineName = document.querySelector('#routine-name').value;
+    const routineDesc = document.querySelector('#routine-desc').value;
+    
+    const routineBody = {
+      name: routineName,
+      description: routineDesc,
+      scheduled: dateOfDay
+    };
+    const response = await fetch('/api/routines', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(routineBody)
+    });
+    const createdRoutine = await response.json();
+
+    document.location.replace(`/routine/${createdRoutine.id}?day=${dayValue}`);
+  });
+
+}
+
+  tailwind.config = { theme: { extend: { colors: { 
+    primary: "#E6B325",
+    secondary: "#3E2C41", 
+    tertiary: "#261C2C", 
+    quarternary: "#5C527F", 
+    }, }, }, };
+
+document.querySelector('#home-button').addEventListener('click', async (e) => {
+e.preventDefault();
+document.location.replace('/');
+});
+
+function getDateForDay(day) {
+  const today = new Date();
+  const currentDay = today.getDay();
+  const daysOfWeek = ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"  ];
+  const targetDayIndex = daysOfWeek.indexOf(day);
+
+  if (targetDayIndex === -1) {
+    throw new Error(`Invalid day: ${day}. Expected one of: ${daysOfWeek.join(', ')}`);
+  }
+
+  let diff =  targetDayIndex - currentDay;
+console.log(diff);
+console.log(diff);
+console.log(diff);
+  const date = new Date(today.getTime() + diff * 24 * 60 * 60 * 1000 );
+  console.log(date);
+  console.log(date);
+  console.log(date);
+  return date.toUTCString();
+}
+
+
+function createExerciseElements(exercises) {
+  const container = document.createElement("div");
+
+  exercises.forEach(exercise => {
+    const exerciseElement = document.createElement("div");
+    exerciseElement.classList.add("flex", "items-center", "justify-between", "p-3", "bg-secondary");
+
+    const emptyDiv1 = document.createElement("div");
+    emptyDiv1.classList.add("w-[20%]");
+
+    const textContainer = document.createElement("div");
+    textContainer.classList.add("text-white", "text-center");
+
+    const nameElement = document.createElement("div");
+    nameElement.classList.add("font-bold", "text-[1.75rem]");
+    nameElement.innerText = exercise.name;
+
+    const learnMovementElement = document.createElement("div");
+    learnMovementElement.classList.add("underline", "text-gray-300");
+    learnMovementElement.innerText = "learn movement";
+
+    const emptyDiv2 = document.createElement("div");
+    emptyDiv2.classList.add("movement-item", "cursor-pointer", "hover:brightness-110", "w-[20%]", "flex", "justify-end");
+
+    const addExerciseIcon = document.createElement("iconify-icon");
+    addExerciseIcon.classList.add("justify-center", "add-exercise-icon");
+    addExerciseIcon.setAttribute("icon", "el:plus-sign");
+    addExerciseIcon.setAttribute("style", "color: #e6b325;");
+    addExerciseIcon.setAttribute("width", "50");
+    addExerciseIcon.setAttribute("height", "50");
+    addExerciseIcon.setAttribute("data-exercise-id", exercise.id);
+    addExerciseIcon.addEventListener("click", () => {
+          exercise.id = 0;
+          exercise.routine_id = routineId;
+
+          //add exercise to routine
+       fetch('/api/exercises', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(exercise)
+        })
+          .then(response => response.json())
+          .then(newExercise => {
+            console.log(newExercise);
+            myExercises.push(newExercise);
+            buildList(myExercises);
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+
+    });
+    textContainer.appendChild(nameElement);
+    textContainer.appendChild(learnMovementElement);
+
+    emptyDiv2.appendChild(addExerciseIcon);
+
+    exerciseElement.appendChild(emptyDiv1);
+    exerciseElement.appendChild(textContainer);
+    exerciseElement.appendChild(emptyDiv2);
+
+    container.appendChild(exerciseElement);
+  });
+
+
+  return container;
+};
+
+
+const workoutList = document.querySelector(".workout-list");
+const deleteButtons = document.querySelectorAll(".delete-button");
+
+function buildList(data) {
+  while (workoutList.firstChild) {
+    workoutList.removeChild(workoutList.firstChild);
+  }
+  if (data != null) {
+    for (let i = 0; i < data.length; i++) {
+      let parentDiv = document.createElement("div");
+
+      // Column 1
+      let column1 = document.createElement("div");
+      let firstLabel1 = document.createElement("div");
+      let secondLabel1 = document.createElement("div");
+      firstLabel1.textContent = data[i].name;
+      firstLabel1.className = "font-bold text-[1.75rem]";
+      secondLabel1.textContent = "learn movement";
+      secondLabel1.className = "underline text-gray-300";
+
+      column1.className = "w-full md:w-[60%] p-2 bg-secondary text-center";
+
+      column1.appendChild(firstLabel1);
+      column1.appendChild(secondLabel1);
+
+      // Column 2
+      let column2 = document.createElement("div");
+      let firstLabel2 = document.createElement("div");
+      let secondLabel2 = document.createElement("div");
+
+      firstLabel2.textContent = "Reps : 5 x 8";
+      secondLabel2.textContent = "Weight : 50lbs";
+
+      column2.className = "font-semibold text-[1.25rem] w-full md:w-[30%]";
+      column2.appendChild(firstLabel2);
+      column2.appendChild(secondLabel2);
+
+      // Column 3
+      let column3 = document.createElement("div");
+      let minusLabel = document.createElement("div");
+      column3.className =
+        "text-[2rem] bg-primary w-fit md:w-[10%] h-fit flex justify-center items-center rounded-full p-3";
+
+      column3.innerHTML = `<img class="h-[2rem] cursor-pointer" src="/images/trash.svg" alt=""/>`;
+
+      column3.addEventListener("click", () => {
+        //set the add remove code here, pop where name is something something
+        console.log(data[i]);
+        
+            //add exercise to routine
+       fetch(`/api/exercises/${data[i].id}`, {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' },
+        });
+
+
+        myExercises = myExercises.filter(exercise => exercise.name != data[i].name);
+        buildList(myExercises);
+      });
+
+      parentDiv.className =
+        "text-white w-full flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-5 bg-quarternary px-3 py-4 md:py-2";
+      parentDiv.appendChild(column1);
+      parentDiv.appendChild(column2);
+      parentDiv.appendChild(column3);
+
+      workoutList.appendChild(parentDiv);
+    }
+  }
+}
+
+
+ async function getExercises() {
+  try {
+    //potentialy get this from API
+    const response = await fetch('/api/exercises', {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    exercises = await response.json();
+    const exerciseElements = createExerciseElements(exercises);
+
+    const movementListEl = document.getElementsByClassName("movement-list");
+    movementListEl[0].appendChild(exerciseElements);    
+    
+  } catch (error) {
+    console.error('Error fetching exercises:', error);
+    return [];
+  }
+};
+
+function buildMovementList(){
+fetch("/js/exerciseData.json")
+  .then(response => response.json())
+  .then(exerciseData => {
+    exercises = exerciseData;
+    
+    const exerciseElements = createExerciseElements(exercises);
+
+        const movementListEl = document.getElementsByClassName("movement-list");
+    movementListEl[0].appendChild(exerciseElements);    
+  });
+
+}
+
+
+ async function getExercisesByRoutineId() {
+  try {
+    //potentialy get this from API
+    const response = await fetch(`/api/exercises/byRoutineId/${routineId}`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    myExercises = await response.json();
+    
+    buildList(myExercises);
+    
+  } catch (error) {
+    console.error('Error fetching exercises:', error);
+    return [];
+  }
+};
+function addOnClickExercise(){
+
+const addExerciseIcons = document.getElementsByClassName("add-exercise-icon");
+
+for (let i = 0; i < addExerciseIcons.length; i++) {
+  addExerciseIcons[i].addEventListener("click", async function() {
+    // Your event listener code here
+       console.log("Excercise clicked");
+
+         //add exercise to routine
+      const response = await fetch('/api/exercise', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(routineBody)
+    });
+    const createdRoutine = await response.json();
+
+  });
+}
+
+
+}
+</script>

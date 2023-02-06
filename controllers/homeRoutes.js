@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Routine, Log } = require("../Models");
+const { User, Routine, Log, Exercise } = require("../Models");
 const withAuth = require("../utils/auth");
 const { Op } = require("sequelize");
 const { today, lastDay, mondayThisWeek, sundayThisWeek } = require('../utils/helpers');
@@ -18,11 +18,10 @@ router.get('/', withAuth, async (req, res) => {
               ],
             // need to query all routines created by logged in user that 
             where: {
-                // isnt defined
                 user_id: req.session.user_id,
                 // date range 
                 scheduled: {
-                    [Op.between]: [today, lastDay],
+                    [Op.between]: [mondayThisWeek, sundayThisWeek],
                 },
             },
         });
@@ -91,13 +90,18 @@ router.get("/routine/:id", withAuth, async (req, res) => {
           model: User,
           attributes: ["name"],
         },
+        {
+        model: Exercise,
+        },
       ],
     });
 
     const routine = routineData.get({ plain: true });
 
-    res.render("routine", {
+    res.render('routine', {
+      dayOfTheWeek,
       routine,
+      routineExercises: routine.exercises,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -107,25 +111,27 @@ router.get("/routine/:id", withAuth, async (req, res) => {
 
 router.get("/routine", withAuth, async (req, res) => {
   try {
-    const routineBody = {
-      user_id: req.session.user_id, 
-      // Fix this
-      name: "Routine ID"
-    };
+    // const routineBody = {
+    //   user_id: req.session.user_id, 
+    //   // Fix this
+    //   name: "Routine ID"
+    // };
 
-    const routineData = await fetch("/api/routines", {
-      method: 'POST', 
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(routineBody)
-    });
+    // const routineData = await fetch("/api/routines", {
+    //   method: 'POST', 
+    //   credentials: 'same-origin',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(routineBody)
+    // });
 
-    const routine = routineData.get({ plain: true });
+    // const routine = routineData.get({ plain: true });
 
-    res.render("routine", {
-      routine, 
+    const dayOfTheWeek = req.query.day; 
+    res.render('routine', {
+      //routine, 
+      dayOfTheWeek,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
