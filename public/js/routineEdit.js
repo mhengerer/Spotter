@@ -96,7 +96,6 @@ function buildList(data) {
 let firstData = JSON.parse(localStorage.getItem("workout"));
 buildList(firstData);
 
-document.querySelector('#home-button').addEventListener('click', async (e) => {
-  e.preventDefault();
+document.querySelector('#home-button').addEventListener('click', async () => {
   document.location.replace('/');
 });
