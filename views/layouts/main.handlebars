@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../../assets/images/spot-logo.png">
     <title>SPOTTER</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
-        referrerpolicy="no-referrer" />
+    {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+        referrerpolicy="no-referrer" /> --}}
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -19,6 +20,7 @@
                         secondary: "#3E2C41",
                         tertiary: "#261C2C",
                         quarternary: "#5C527F",
+                        hover:"#FADA9D",
                     },
                 },
             },
@@ -26,7 +28,7 @@
     </script>
 </head>
 
-<body>
+<body class="bg-tertiary">
 
 {{{body}}}
 

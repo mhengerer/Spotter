@@ -9,10 +9,10 @@
 </script>
 <div>
   <!-- Navigation  -->
-  <nav class="bg-secondary p-5">
+  <nav class="w-full py-2 relative shadow-md bg-secondary">
     <button 
     id="home-button" 
-    class="rounded-full bg-primary text-black font-bold px-10 py-2 w-fit">
+    class="block pt-2 pb-2 pl-3 pr-3 text-white rounded-full ml-2 font-bold bg-primary">
       Home
     </button>
   </nav>
@@ -24,7 +24,7 @@
     <div class="movement-list flex flex-col space-y-2 w-full items-center">
       <div class="text-primary font-semibold text-[1.5rem]">{{routine.scheduled}}</div>
       <div
-        class="bg-quarternary p-3 text-white font-bold w-full text-center text-[1.5rem]"
+        class="rounded-lg bg-quarternary p-3 text-white font-bold w-full text-center text-[1.5rem]"
       >
         {{ routine.name }}
       </div>
@@ -37,10 +37,12 @@
       </div>
     </div>
     <!-- Col 2  -->
+
     <div class="w-full p-2 bg-quarternary h-fit">
       <form data-Id = "{{routine.id}}" id="searchbar">
+
         <input
-        class="bg-primary w-full p-3 outline-none placeholder:text-secondary placeholder:font-semibold"
+        class="rounded-lg bg-primary w-full p-3 outline-none placeholder:text-secondary placeholder:font-semibold"
         placeholder="Search Movements"
         type="text"
         id="user-query"
@@ -48,9 +50,6 @@
       </form>
       
       <div class="workout-list mt-2 flex flex-col space-y-3">
-        {{#each exercises as |exercise| }}
-        {{> newExercise }}
-        {{/each}}
       </div>
     </div>
   </div>
