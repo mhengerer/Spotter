@@ -1,4 +1,4 @@
-<script src="https://cdn.tailwindcss.com"></script>
+<<script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = { theme: { extend: { colors: { 
     primary: "#E6B325",
@@ -34,102 +34,27 @@
     <!-- Col 2  -->
     <div class="w-full p-2 bg-quarternary h-fit">
       <input
+        id = "searchbar"
         class="bg-primary w-full p-3 outline-none placeholder:text-secondary placeholder:font-semibold"
         placeholder="Search Movements"
       />
       <div class="movement-list mt-2 flex flex-col space-y-3">
         <!-- List  -->
+        {{#each exercises as |exercise| }}
         <div class="flex items-center justify-between p-3 bg-secondary">
           <div class="w-[20%]"></div>
           <div class="text-white text-center">
-            <div class="font-bold text-[1.75rem]">Split Squat</div>
-            <div class="underline text-gray-300">learn movement</div>
+            <div  class="font-bold text-[1.75rem]">{{ exercise.name }}</div>
+            <a  href="{{exercise.gif_url}}" class="text-gray-300">learn movement</a>
           </div>
           <div
-            id="Split Squat"
+            id="{{ exercise.name }}"
             class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
           >
-            <img class="w-[40px] h-[40px]" src="../images/add.svg" alt="" />
+            <img class="w-[40px] h-[40px]" src="../images/add.svg"/>
           </div>
         </div>
-        <div class="flex items-center justify-between p-3 bg-secondary">
-          <div class="w-[20%]"></div>
-          <div class="text-white text-center">
-            <div class="font-bold text-[1.75rem]">Belgium Squat</div>
-            <div class="underline text-gray-300">learn movement</div>
-          </div>
-          <div
-            id="Belgium Squat"
-            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
-          >
-            <img class="w-[40px] h-[40px]" src="../images/add.svg" alt="" />
-          </div>
-        </div>
-        <div class="flex items-center justify-between p-3 bg-secondary">
-          <div class="w-[20%]"></div>
-          <div class="text-white text-center">
-            <div class="font-bold text-[1.75rem]">Romanian Deadlift</div>
-            <div class="underline text-gray-300">learn movement</div>
-          </div>
-          <div
-            id="Romanian Deadlift"
-            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
-          >
-            <img class="w-[40px] h-[40px]" src="../images/add.svg" alt="" />
-          </div>
-        </div>
-        <div class="flex items-center justify-between p-3 bg-secondary">
-          <div class="w-[20%]"></div>
-          <div class="text-white text-center">
-            <div class="font-bold text-[1.75rem]">Goblet Squat</div>
-            <div class="underline text-gray-300">learn movement</div>
-          </div>
-          <div
-            id="Goblet Squat"
-            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
-          >
-            <img class="w-[40px] h-[40px]" src="../images/add.svg" alt="" />
-          </div>
-        </div>
-        <div class="flex items-center justify-between p-3 bg-secondary">
-          <div class="w-[20%]"></div>
-          <div class="text-white text-center">
-            <div class="font-bold text-[1.75rem]">Reverse Lunge</div>
-            <div class="underline text-gray-300">learn movement</div>
-          </div>
-          <div
-            id="Reverse Lunge"
-            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
-          >
-            <img class="w-[40px] h-[40px]" src="../images/add.svg" alt="" />
-          </div>
-        </div>
-        <div class="flex items-center justify-between p-3 bg-secondary">
-          <div class="w-[20%]"></div>
-          <div class="text-white text-center">
-            <div class="font-bold text-[1.75rem]">Leg Extension</div>
-            <div class="underline text-gray-300">learn movement</div>
-          </div>
-          <div
-            id="Leg Extension"
-            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
-          >
-            <img class="w-[40px] h-[40px]" src="../images/add.svg" alt="" />
-          </div>
-        </div>
-        <div class="flex items-center justify-between p-3 bg-secondary">
-          <div class="w-[20%]"></div>
-          <div class="text-white text-center">
-            <div class="font-bold text-[1.75rem]">Calf Raise</div>
-            <div class="underline text-gray-300">learn movement</div>
-          </div>
-          <div
-            id="Calf Raise"
-            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
-          >
-            <img class="w-[40px] h-[40px]" src="../images/add.svg" alt="" />
-          </div>
-        </div>
+        {{/each}}
         <!-- List End  -->
       </div>
     </div>
@@ -137,15 +62,9 @@
 </div>
 
 <script>
-  const data = [
-  "Split Squat",
-  "Belgium Squat",
-  "Romanian Deadlift",
-  "Goblet Squats",
-  "Reverse Lunge",
-  "Leg Extension",
-  "Calf Raise",
-];
+const { searchExercises } = require("/js/exercise.js");
+
+const data = [ ${searchExercises.exercises} ];
 
 const movementList = document.querySelector(".movement-list");
 const movementItems = document.querySelectorAll(".movement-item");
@@ -179,11 +98,12 @@ function buildList(data) {
       // Column 1
       let column1 = document.createElement("div");
       let firstLabel1 = document.createElement("div");
-      let secondLabel1 = document.createElement("div");
+      let secondLabel1 = document.createElement("a");
       firstLabel1.textContent = data[i];
       firstLabel1.className = "font-bold text-[1.75rem]";
       secondLabel1.textContent = "learn movement";
       secondLabel1.className = "underline text-gray-300";
+      secondLabel1.href = `${data[i].}`;
 
       column1.className = "w-full md:w-[60%] p-2 bg-secondary text-center";
 
@@ -237,6 +157,11 @@ buildList(firstData);
 
 document.querySelector('#home-button').addEventListener('click', async () => {
   document.location.replace('/');
+});
+
+document.querySelector('#searchbar').addEventListener('submit', async (search) => {
+  search.preventDefault();
+  await searchExercises(search);
 });
 
 </script>
