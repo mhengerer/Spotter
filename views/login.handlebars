@@ -63,13 +63,13 @@
     });
 
     if (response.ok) {
-        alert('Login successful!');
+        console.log('Login successful!');
 
         document.location.replace('/');
     } else {
         console.log(email);
         console.log(password);
-        alert('Error signing up');
+        console.log('Error signing up');
     }
 });
 
