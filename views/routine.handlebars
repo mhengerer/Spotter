@@ -28,9 +28,11 @@
       >
         {{ routine.name }}
       </div>
-      <div class=" w-full flex flex-col space-y-3">
-                <!-- List  -->
-
+      <div class="w-full flex flex-col space-y-3">
+        <!-- List  -->
+        {{#each existingExercises as |exercise| }}
+        {{> existingExercise }}
+        {{/each}}
         <!-- List End  -->
       </div>
     </div>

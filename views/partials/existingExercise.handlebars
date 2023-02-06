@@ -1,0 +1,24 @@
+<div class="">
+    <div class="w-full md:w-[60%] p-2 bg-secondary text-center">
+        <div class="font-bold text-[1.75rem]">{{exercise.name}}</div>
+        <a href="{{exercise.gif_url}}" class="underline text-gray-300">Learn Movement</a>
+    </div>    
+    <div>
+        <div>
+            Reps : 5 x 8 TODO
+        </div>
+        <div>
+            Weight : 50lbs TODO
+        </div>
+    </div>
+    <div class="deleteColumn text-[2rem] bg-primary w-fit md:w-[10%] h-fit flex justify-center items-center rounded-full p-3">
+        <img class="addImg h-[2rem] cursor-pointer" src="./images/trash.svg" alt=""/>
+    </div>
+    <script>
+        import { deleteExercise } from './js/exercises.js'; 
+
+        $('.deleteColumn').click(() => {
+            deleteExercise({{exercise.id}})
+        })
+    </script>
+</div>

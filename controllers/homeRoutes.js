@@ -104,11 +104,11 @@ router.get("/routine", withAuth, async (req, res) => {
     }
   })
 
-  const exercises = exerciseData.map((exercise) => exercise.get({ plain: true }));
+  const existingExercises = exerciseData.map((exercise) => exercise.get({ plain: true }));
 
   res.render("routine", {
     routine,
-    exercises, 
+    existingExercises,
     logged_in: req.session.logged_in,
   });
   // .catch (err) {

@@ -18,8 +18,8 @@ export async function postExercise(exercise, routine_id) {
             "content-type":"application/json"
         }, 
         body: JSON.stringify({
-            routine_id: routine_id,
-            exercise
+            exercise, 
+            routine_id: routine_id
         })
     }
     const response = await fetch('api/exercise', options);
