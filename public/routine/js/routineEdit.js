@@ -43,7 +43,7 @@ function buildList(data, routineId) {
       secondLabel1.className = "underline text-gray-300";
       secondLabel1.href = `${data[i].gif_url}`;
 
-      column1.className = "w-full md:w-[60%] p-2 bg-secondary text-center";
+      column1.className = "rounded-lg w-full md:w-[90%] p-2 bg-secondary text-center";
 
       column1.appendChild(firstLabel1);
       column1.appendChild(secondLabel1);
