@@ -36,7 +36,7 @@
           {{mondayRoutine.name}}
        </a>
     {{else}}
-    <button id="plus-btn"
+    <button data-day="Monday" id="plus-btn"
         class="block pt-3 pb-3 pl-6 pr-6 rounded-lg w-full mt-5 font-bold"
         type="submit">+</button>
         {{!-- ></iconify-icon> --}}
@@ -60,19 +60,20 @@
           {{tuesdayRoutine.name}}      
        </a>
     {{else}}
-    <button id="plus-btn"
+    <button data-day="Tuesday" id="plus-btn"
         class="block pt-3 pb-3 pl-6 pr-6 rounded-lg w-full mt-5 font-bold"
         type="submit">+</button>
 
-       {{!-- <iconify-icon --}}
-          {{!-- class="justify-center new-routine-icon"
+       {{!-- <iconify-icon
+          id="plus-btn"
+          class="justify-center new-routine-icon"
           icon="el:plus-sign"
           style="color: #e6b325;"
           width="50"
           height="50"
-          data-day="Tuesday" --}}
-          
-        {{!-- ></iconify-icon> --}}
+          data-day="Tuesday"
+          type="submit"
+        ></iconify-icon> --}}
     {{/if}}
 
       </div>
@@ -88,11 +89,11 @@
         <h5 class="card-header text-xl font-medium mb-2">Wednesday</h5>
        
 {{#if wednesdayRoutine}}
-        <a class="new-routine-link card-desc text-base mb-4" href="#" data-day="Wednesday" data-routine_id="{{wednesdayRoutine.id}}">
+        <a class="new-routine-link card-desc text-base mb-4" href="#"  data-routine_id="{{wednesdayRoutine.id}}">
           {{wednesdayRoutine.name}}      
        </a>
     {{else}}
-    <button id="plus-btn"
+    <button data-routine_id="{{wednesdayRoutine.id}}" data-day="Wednesday" id="plus-btn"
         class="block pt-3 pb-3 pl-6 pr-6 rounded-lg w-full mt-5 font-bold"
         type="submit">+</button>
         {{!-- ></iconify-icon> --}}
@@ -115,7 +116,7 @@
           {{thursdayRoutine.name}}      
        </a>
     {{else}}
-    <button id="plus-btn"
+    <button data-routine_id="{{thursdayRoutine.id}}" data-day="Thursday" id="plus-btn"
         class="block pt-3 pb-3 pl-6 pr-6 rounded-lg w-full mt-5 font-bold"
         type="submit">+</button>
         {{!-- ></iconify-icon> --}}
@@ -137,7 +138,7 @@
           {{fridayRoutine.name}}      
        </a>
     {{else}}
-    <button id="plus-btn"
+    <button data-routine_id="{{fridayRoutine.id}}" data-day="Friday" id="plus-btn"
         class="block pt-3 pb-3 pl-6 pr-6 rounded-lg w-full mt-5 font-bold"
         type="submit">+</button>
         {{!-- ></iconify-icon> --}}
@@ -159,7 +160,7 @@
           {{saturdayRoutine.name}}      
        </a>
     {{else}}
-    <button id="plus-btn"
+    <button data-routine_id="{{saturdayRoutine.id}}" data-day="Saturday" id="plus-btn"
         class="block pt-3 pb-3 pl-6 pr-6 rounded-lg w-full mt-5 font-bold"
         type="submit">+</button>
         {{!-- ></iconify-icon> --}}
@@ -181,7 +182,7 @@
           {{sundayRoutine.name}}      
        </a>
     {{else}}
-    <button id="plus-btn"
+    <button data-routine_id="{{sundayRoutine.id}}" data-day="Sunday" id="plus-btn"
         class="block pt-3 pb-3 pl-6 pr-6 rounded-lg w-full mt-5 font-bold"
         type="submit">+</button>
         {{!-- ></iconify-icon> --}}

@@ -20,16 +20,20 @@ if (icons.length) {
     icons.forEach(function (icon) {
         icon.addEventListener('click', function () {
             const routineId = this.dataset.routine_id;
+            const day = this.dataset.day;
+            console.log(routineId);
+            console.log();
             const response = fetch(`/api/routines`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ 'name': 'littteraly annnything', "description": "A routine that focuses on cardiovascular fitness", 'scheduled': '2021-01-01T05:00:00.000Z' }),
+                body: JSON.stringify({ "name": "Workout", "description": "A routine that focuses on cardiovascular fitness", "scheduled": `${day}` }),
             })
                 .then(response => {
                     if (response.ok) {
-                        document.location.replace(`/routine`);
+
+                        document.location.replace(`/routine?day=${day}`);
                     } else {
                         console.log(response.statusText);
                     }

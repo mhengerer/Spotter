@@ -51,5 +51,20 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/byRoutineId/:routineId', async (req, res) => {
+    try {
+        const routineId = req.params.routineId;
+        const exerciseData = await Exercise.findAll({ where: { routine_Id: routineId } });
+
+        if (!exerciseData) {
+            res.status(404).json({ message: 'Cant Find Exercises for this Routine ID!' });
+            return;
+        }
+
+        res.status(200).json(exerciseData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 module.exports = router;
