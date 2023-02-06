@@ -1,0 +1,211 @@
+<div>
+    <!-- Navigation  -->
+    <nav class="bg-secondary p-5">
+        <div class="rounded-full bg-primary text-black font-bold px-10 py-2 w-fit">
+            <div>Home</div>
+        </div>
+    </nav>
+    <!-- Content  -->
+    <div class="p-5 w-full p-5 flex flex-col space-y-5 lg:space-y-0 lg:flex-row lg:space-x-12 bg-tertiary h-full">
+        <!-- Col 1  -->
+        <div class="flex flex-col space-y-2 w-full items-center">
+            <div class="text-primary font-semibold text-[1.5rem]">Monday</div>
+            <div class="bg-quarternary p-3 text-white font-bold w-full text-center text-[1.5rem]">
+                Leg Day
+            </div>
+            <div class="workout-list w-full flex flex-col space-y-3"></div>
+        </div>
+        <!-- Col 2  -->
+        <div class="w-full p-2 bg-quarternary h-fit">
+            <input class="bg-primary w-full p-3 outline-none placeholder:text-secondary placeholder:font-semibold"
+                placeholder="Search Movements" />
+            <div class="movement-list mt-2 flex flex-col space-y-3">
+                <!-- List  -->
+                <div class="flex items-center justify-between p-3 bg-secondary">
+                    <div class="w-[20%]"></div>
+                    <div class="text-white text-center">
+                        <div class="font-bold text-[1.75rem]">Split Squat</div>
+                        <div class="underline text-gray-300">learn movement</div>
+                    </div>
+                    <div id="Split Squat"
+                        class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end">
+                        <img class="w-[40px] h-[40px]" src="assets/add.svg" alt="" />
+                    </div>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-secondary">
+                    <div class="w-[20%]"></div>
+                    <div class="text-white text-center">
+                        <div class="font-bold text-[1.75rem]">Belgium Squat</div>
+                        <div class="underline text-gray-300">learn movement</div>
+                    </div>
+                    <div id="Belgium Squat"
+                        class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end">
+                        <img class="w-[40px] h-[40px]" src="assets/add.svg" alt="" />
+                    </div>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-secondary">
+                    <div class="w-[20%]"></div>
+                    <div class="text-white text-center">
+                        <div class="font-bold text-[1.75rem]">Romanian Deadlift</div>
+                        <div class="underline text-gray-300">learn movement</div>
+                    </div>
+                    <div id="Romanian Deadlift"
+                        class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end">
+                        <img class="w-[40px] h-[40px]" src="assets/add.svg" alt="" />
+                    </div>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-secondary">
+                    <div class="w-[20%]"></div>
+                    <div class="text-white text-center">
+                        <div class="font-bold text-[1.75rem]">Goblet Squat</div>
+                        <div class="underline text-gray-300">learn movement</div>
+                    </div>
+                    <div id="Goblet Squat"
+                        class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end">
+                        <img class="w-[40px] h-[40px]" src="assets/add.svg" alt="" />
+                    </div>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-secondary">
+                    <div class="w-[20%]"></div>
+                    <div class="text-white text-center">
+                        <div class="font-bold text-[1.75rem]">Reverse Lunge</div>
+                        <div class="underline text-gray-300">learn movement</div>
+                    </div>
+                    <div id="Reverse Lunge"
+                        class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end">
+                        <img class="w-[40px] h-[40px]" src="assets/add.svg" alt="" />
+                    </div>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-secondary">
+                    <div class="w-[20%]"></div>
+                    <div class="text-white text-center">
+                        <div class="font-bold text-[1.75rem]">Leg Extension</div>
+                        <div class="underline text-gray-300">learn movement</div>
+                    </div>
+                    <div id="Leg Extension"
+                        class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end">
+                        <img class="w-[40px] h-[40px]" src="assets/add.svg" alt="" />
+                    </div>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-secondary">
+                    <div class="w-[20%]"></div>
+                    <div class="text-white text-center">
+                        <div class="font-bold text-[1.75rem]">Calf Raise</div>
+                        <div class="underline text-gray-300">learn movement</div>
+                    </div>
+                    <div id="Calf Raise"
+                        class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end">
+                        <img class="w-[40px] h-[40px]" src="assets/add.svg" alt="" />
+                    </div>
+                </div>
+                <!-- List End  -->
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const data = [
+        "Split Squat",
+        "Belgium Squat",
+        "Romanian Deadlift",
+        "Goblet Squats",
+        "Reverse Lunge",
+        "Leg Extension",
+        "Calf Raise",
+    ];
+
+    const movementList = document.querySelector(".movement-list");
+    const movementItems = document.querySelectorAll(".movement-item");
+
+    const workoutList = document.querySelector(".workout-list");
+    const deleteButtons = document.querySelectorAll(".delete-button");
+
+    movementItems.forEach((el) =>
+        el.addEventListener("click", () => {
+            //TODO: update source
+            let data = JSON.parse(localStorage.getItem("workout"));
+            if (data !== null) {
+                data.push(el.id);
+                localStorage.setItem("workout", JSON.stringify([...data]));
+            } else {
+                data = [el.id];
+                localStorage.setItem("workout", JSON.stringify([el.id]));
+            }
+            buildList(data);
+        })
+    );
+
+    function buildList(data) {
+        while (workoutList.firstChild) {
+            workoutList.removeChild(workoutList.firstChild);
+        }
+        if (data != null) {
+            for (let i = 0; i < data.length; i++) {
+                let parentDiv = document.createElement("div");
+
+                // Column 1
+                let column1 = document.createElement("div");
+                let firstLabel1 = document.createElement("div");
+                let secondLabel1 = document.createElement("div");
+                firstLabel1.textContent = data[i];
+                firstLabel1.className = "font-bold text-[1.75rem]";
+                secondLabel1.textContent = "learn movement";
+                secondLabel1.className = "underline text-gray-300";
+
+                column1.className = "w-full md:w-[60%] p-2 bg-secondary text-center";
+
+                column1.appendChild(firstLabel1);
+                column1.appendChild(secondLabel1);
+
+                // Column 2
+                let column2 = document.createElement("div");
+                let firstLabel2 = document.createElement("div");
+                let secondLabel2 = document.createElement("div");
+
+                firstLabel2.textContent = "Reps : 5 x 8";
+                secondLabel2.textContent = "Weight : 50lbs";
+
+                column2.className = "font-semibold text-[1.25rem] w-full md:w-[30%]";
+                column2.appendChild(firstLabel2);
+                column2.appendChild(secondLabel2);
+
+                // Column 3
+                let column3 = document.createElement("div");
+                let minusLabel = document.createElement("div");
+                column3.className =
+                    "text-[2rem] bg-primary w-fit md:w-[10%] h-fit flex justify-center items-center rounded-full p-3";
+
+                column3.innerHTML = `<img class="h-[2rem] cursor-pointer" src="assets/trash.svg" alt=""/>`;
+
+                column3.addEventListener("click", () => {
+                    let workoutData = JSON.parse(localStorage.getItem("workout"));
+                    workoutData.splice(i, 1);
+                    if (workoutData.length > 0) {
+                        localStorage.setItem("workout", JSON.stringify([...workoutData]));
+                    } else {
+                        localStorage.clear("workout");
+                    }
+                    buildList(workoutData);
+                });
+
+                parentDiv.className =
+                    "text-white w-full flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-5 bg-quarternary px-3 py-4 md:py-2";
+                parentDiv.appendChild(column1);
+                parentDiv.appendChild(column2);
+                parentDiv.appendChild(column3);
+
+                workoutList.appendChild(parentDiv);
+            }
+        }
+    }
+
+    let firstData = JSON.parse(localStorage.getItem("workout"));
+    buildList(firstData);
+
+    document.querySelector('#home-button').addEventListener('click', async () => {
+        document.location.replace('/');
+    });
+
+</script>
+
+
