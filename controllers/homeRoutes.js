@@ -1,8 +1,6 @@
 const router = require("express").Router();
 const { User, Routine, Log } = require("../Models");
 const withAuth = require("../utils/auth");
-const { Op } = require("sequelize");
-const { today, lastDay, mondayThisWeek, sundayThisWeek } = require('../utils/helpers');
 
 // TODO: Identify if dates are actually the ones being returned. 
 // this takes user to portal login if they arent already logged in 
