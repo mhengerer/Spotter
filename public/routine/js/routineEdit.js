@@ -20,8 +20,9 @@ movementItems.forEach((el) =>
   })
 );
 
-let exerciseObjects; 
-function buildList(data) {
+
+function buildList(data, routineId) {
+
   // If the list has any children, remove them all 
   while (workoutList.firstChild) {
     workoutList.removeChild(workoutList.firstChild);
@@ -51,8 +52,19 @@ function buildList(data) {
       column2.className =
         "text-[2rem] bg-secondary w-fit md:w-[10%] h-fit flex justify-center items-center rounded-full p-3";
 
-      column2.innerHTML = `<img class="h-[2rem] cursor-pointer" src="./images/add.svg" alt=""/>`;
+      column2.innerHTML = `<img class="h-[2rem] cursor-pointer" src="./images/add.svg" alt="" 
+                            data-Exercise='[{"name":"${data[i].name}",
+                            "target":"${data[i].target}", "body_part":"${data[i].bodyPart}",
+                            "equipment":"${data[i].equipment}", "gif_url":"${data[i].gifUrl}" }]' />`;
 
+      column2.addEventListener("click", (e) => {
+        e.preventDefault();
+        let exerciseData = JSON.parse(e.target.getAttribute("data-Exercise"))[0];
+        console.log(exerciseData);
+        postExercise(exerciseData, routineId);
+        window.location.reload();
+        // buildList(workoutData);
+      });
       // Remove the workout from the left column and DELETE it from the database
 
       parentDiv.className =
@@ -72,13 +84,14 @@ document.querySelector('#home-button').addEventListener('click', async () => {
 
 $('#searchbar').submit(async (e) => {
   e.preventDefault();
+  const routineId = $('#searchbar').attr("data-Id");
   const userInput = $('#user-query').val(); 
   let exercises = await searchExercises(userInput);
 
+  console.log(exercises, routineId);
   if(exercises.length > 10) {
     exercises = exercises.slice(0, 10);
   }
-  console.log(exercises);
-  buildList(exercises);
+  buildList(exercises, routineId);
   }
 );

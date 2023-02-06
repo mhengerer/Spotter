@@ -1,6 +1,5 @@
 [
     {
-        "id": "0165",
         "name": "cable hammer curl (with rope)",
         "body_part": "upper arms",
         "target": "biceps",
@@ -8,7 +7,7 @@
         "gif_url": "http://d205bpvrqc9yn1.cloudfront.net/0165.gif"
     },
     {
-        "id": "0303",
+    
         "name": "dumbbell decline hammer press",
         "body_part": "chest",
         "target": "pectorals",
@@ -16,7 +15,6 @@
         "gif_url": "http://d205bpvrqc9yn1.cloudfront.net/0303.gif"
     },
     {
-        "id": "1436",
         "name": "barbell high bar squat",
         "body_part": "upper legs",
         "target": "glutes",
@@ -24,7 +22,6 @@
         "gif_url": "http://d205bpvrqc9yn1.cloudfront.net/1436.gif"
     },
     {
-        "id": "3168",
         "name": "bodyweight squatting row",
         "body_part": "back",
         "target": "upper back",
@@ -32,7 +29,6 @@
         "gif_url": "http://d205bpvrqc9yn1.cloudfront.net/3168.gif"
     },
     {
-        "id": "0150",
         "name": "cable bar lateral pulldown",
         "body_part": "back",
         "target": "lats",
@@ -40,7 +36,6 @@
         "gif_url": "http://d205bpvrqc9yn1.cloudfront.net/0150.gif"
     },
     {
-        "id": "1261",
         "name": "cable decline press",
         "body_part": "chest",
         "target": "pectorals",
@@ -48,7 +43,6 @@
         "gif_url": "http://d205bpvrqc9yn1.cloudfront.net/1261.gif"
     },
     {
-        "id": "0539",
         "name": "kettlebell one arm jerk",
         "body_part": "shoulders",
         "target": "delts",
