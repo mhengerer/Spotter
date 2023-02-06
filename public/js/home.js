@@ -28,7 +28,9 @@ if (icons.length) {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ "name": "Workout", "description": "A routine that focuses on cardiovascular fitness", "scheduled": `${day}` }),
+                body: JSON.stringify({ "name": "Workout", 
+                "description": "A routine that focuses on cardiovascular fitness", 
+                "scheduled": `${day}` }),
             })
                 .then(response => {
                     if (response.ok) {

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Routine, Log } = require("../Models");
+const { User, Routine, Exercise, Log } = require("../Models");
 const withAuth = require("../utils/auth");
 
 // TODO: Identify if dates are actually the ones being returned. 
@@ -98,8 +98,17 @@ router.get("/routine", withAuth, async (req, res) => {
 
   const routine = routineData.get({ plain: true });
 
+  const exerciseData = await Exercise.findAll({
+    where: {
+      routine_id: routine.id
+    }
+  })
+
+  const existingExercises = exerciseData.map((exercise) => exercise.get({ plain: true }));
+
   res.render("routine", {
     routine,
+    existingExercises,
     logged_in: req.session.logged_in,
   });
   // .catch (err) {

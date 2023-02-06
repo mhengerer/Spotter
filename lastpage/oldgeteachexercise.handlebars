@@ -1,0 +1,13 @@
+<div class="flex items-center justify-between p-3 bg-secondary">
+          <div class="w-[20%]"></div>
+          <div class="text-white text-center">
+            <div  class="font-bold text-[1.75rem]">{{ exercise.name }}</div>
+            <a href="{{exercise.gif_url}}" class="text-gray-300">Learn Movement</a>
+          </div>
+          <div
+            id="{{ exercise.name }}"
+            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
+          >
+            <img class="w-[40px] h-[40px]" src="../images/add.svg"/>
+          </div>
+        </div>
