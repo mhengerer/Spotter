@@ -7,3 +7,10 @@
         <img class="addImg h-[2rem] cursor-pointer" src="./images/add.svg" alt=""/>
     </div>
 </div>
+<script>
+    column2.addEventListener("click", (e) => {
+        e.preventDefault();
+        postExercise({{exercise}}, {{routine.id}});
+        buildList(workoutData);
+      });
+</script>
