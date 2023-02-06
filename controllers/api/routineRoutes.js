@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 
 // pull user_id From session 
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const newRoutine = await Routine.create({
             ...req.body,
@@ -13,11 +13,11 @@ router.post('/', withAuth, async (req, res) => {
 
         res.status(200).json(newRoutine);
     } catch (err) {
-        res.status(400).json(err);
+        res.status(402).json(err);
     }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const routineData = await Routine.destroy({
             where: {

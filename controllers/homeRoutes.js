@@ -108,19 +108,32 @@ router.get("/routine/:id", withAuth, async (req, res) => {
 
 router.get("/routine", withAuth, async (req, res) => {
   try {
-    const routineBody = {
-      user_id: req.session.user_id, 
-      // Fix this
-      name: "Routine ID"
-    };
+    // const routineBody = {
+    //   user_id: req.session.user_id, 
+    //   // Fix this
+    //   name: "Routine ID"
+    // };
 
-    const routineData = await fetch("/api/routines", {
-      method: 'POST', 
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(routineBody)
+    // const routineData = await fetch("/api/routines", {
+    //   method: 'POST', 
+    //   credentials: 'same-origin',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(routineBody)
+    // });
+    const routineData = await Routine.findOne({
+      include: [
+          {
+            model: User,
+            attributes: ['name'],
+          },
+        ],
+      // need to query all routines created by logged in user that 
+      where: {
+          // isnt defined
+          user_id: req.session.user_id,
+        },
     });
 
     const routine = routineData.get({ plain: true });
@@ -130,7 +143,7 @@ router.get("/routine", withAuth, async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    res.status(500).json(err);
+    res.status(505).json(err);
   }
 });
 
