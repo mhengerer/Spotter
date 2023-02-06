@@ -20,7 +20,6 @@ movementItems.forEach((el) =>
   })
 );
 
-
 function buildList(data, routineId) {
 
   // If the list has any children, remove them all 
@@ -37,7 +36,7 @@ function buildList(data, routineId) {
       let column1 = document.createElement("div");
       let firstLabel1 = document.createElement("div");
       let secondLabel1 = document.createElement("a");
-      firstLabel1.textContent = data[i].name;
+      firstLabel1.textContent =`"${data[i].name}"`;
       firstLabel1.className = "font-bold text-[1.75rem]";
       secondLabel1.textContent = "learn movement";
       secondLabel1.className = "underline text-gray-300";
@@ -66,6 +65,12 @@ function buildList(data, routineId) {
         // buildList(workoutData);
       });
       // Remove the workout from the left column and DELETE it from the database
+      // deleteButtons.addEventListener("click", (e) => {
+      //   let exerciseId = e.target.getAttribute("")
+
+      //   })
+      // );
+
 
       parentDiv.className =
         "text-white w-full flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-5 bg-quarternary px-3 py-4 md:py-2";
@@ -95,3 +100,4 @@ $('#searchbar').submit(async (e) => {
   buildList(exercises, routineId);
   }
 );
+
