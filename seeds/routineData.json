@@ -1,51 +1,51 @@
 [  {    
      "name": "Full Body Workout",    
      "description": "A routine that targets all major muscle groups",    
-     "scheduled": "2023-01-01T00:00:00"  
+     "scheduled": "Monday"  
     },  
     {    
       "name": "Upper Body Workout",    
       "description": "A routine that focuses on upper body exercises",    
-      "scheduled": "2023-02-04T00:00:00"    
+      "scheduled": "Tuesday"    
     },  
     {    
       "name": "Lower Body Workout",    
       "description": "A routine that focuses on lower body exercises",    
-      "scheduled": "2023-02-05T00:00:00"   
+      "scheduled": "Wednesday"   
     },  
     {    
       "name": "Strength Training",    
       "description": "A routine that focuses on building strength",    
-      "scheduled": "2023-02-06T00:00:00"   
+      "scheduled": "Thursday"   
     },  
     {    
       "name": "Cardio Workout",    
       "description": "A routine that focuses on cardiovascular fitness",    
-      "scheduled": "2023-02-08T00:00:00"   
+      "scheduled": "Friday"   
     },  
     {    
       "name": "Beginner's Workout",    
       "description": "A routine for those new to exercise",    
-      "scheduled": "2023-02-09T00:00:00"   
+      "scheduled": "Saturday"   
     },  
     {    
       "name": "Intermediate Workout",    
       "description": "A routine for those with some exercise experience",    
-      "scheduled": "2023-02-10T00:00:00"  
+      "scheduled": "Sunday"  
     },  
     {    
       "name": "Advanced Workout",    
       "description": "A routine for experienced exercisers",    
-      "scheduled": "2023-02-11T00:00:00"   
+      "scheduled": "Monday"   
     },  
     {    
       "name": "Fat Loss Workout",    
       "description": "A routine that focuses on burning fat",    
-      "scheduled": "2023-02-12T00:00:00"   
+      "scheduled": "Tuesday"   
     },  
     {    
       "name": "Muscle Building Workout",    
       "description": "A routine that focuses on building muscle mass",    
-      "scheduled": "2021-01-01T00:00:00"   
+      "scheduled": "Wednesday"   
     }
 ]

@@ -27,7 +27,7 @@ Routine.init(
       allowNull: false
     },
     scheduled: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
     },
   },
   {

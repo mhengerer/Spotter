@@ -23,11 +23,11 @@
   >
     <!-- Col 1  -->
     <div class="flex flex-col space-y-2 w-full items-center">
-      <div class="text-primary font-semibold text-[1.5rem]">{{dayOfTheWeek}}</div>
+      <div class="text-primary font-semibold text-[1.5rem]">{{routine.scheduled}}</div>
       <div
         class="bg-quarternary p-3 text-white font-bold w-full text-center text-[1.5rem]"
       >
-        Leg Day
+        {{ routine.name }}
       </div>
       <div class="workout-list w-full flex flex-col space-y-3"></div>
     </div>

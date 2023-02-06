@@ -36,14 +36,10 @@
           {{mondayRoutine.name}}
        </a>
     {{else}}
-       <iconify-icon
-          class="justify-center new-routine-icon"
-          icon="el:plus-sign"
-          style="color: #e6b325;"
-          width="50"
-          height="50"
-          data-day="Monday"
-        ></iconify-icon>
+    <button data-day="Monday" id="plus-btn"
+        class="block pt-3 pb-3 pl-6 pr-6 rounded-lg w-full mt-5 font-bold"
+        type="submit">+</button>
+        {{!-- ></iconify-icon> --}}
     {{/if}}
 
         
@@ -64,14 +60,20 @@
           {{tuesdayRoutine.name}}      
        </a>
     {{else}}
-       <iconify-icon
+    <button data-day="Tuesday" id="plus-btn"
+        class="block pt-3 pb-3 pl-6 pr-6 rounded-lg w-full mt-5 font-bold"
+        type="submit">+</button>
+
+       {{!-- <iconify-icon
+          id="plus-btn"
           class="justify-center new-routine-icon"
           icon="el:plus-sign"
           style="color: #e6b325;"
           width="50"
           height="50"
           data-day="Tuesday"
-        ></iconify-icon>
+          type="submit"
+        ></iconify-icon> --}}
     {{/if}}
 
       </div>
@@ -87,18 +89,14 @@
         <h5 class="card-header text-xl font-medium mb-2">Wednesday</h5>
        
 {{#if wednesdayRoutine}}
-        <a class="new-routine-link card-desc text-base mb-4" href="#" data-day="Wednesday" data-routine_id="{{wednesdayRoutine.id}}">
+        <a class="new-routine-link card-desc text-base mb-4" href="#"  data-routine_id="{{wednesdayRoutine.id}}">
           {{wednesdayRoutine.name}}      
        </a>
     {{else}}
-       <iconify-icon
-          class="justify-center new-routine-icon"
-          icon="el:plus-sign"
-          style="color: #e6b325;"
-          width="50"
-          height="50"
-          data-day="Wednesday"
-        ></iconify-icon>
+    <button data-routine_id="{{wednesdayRoutine.id}}" data-day="Wednesday" id="plus-btn"
+        class="block pt-3 pb-3 pl-6 pr-6 rounded-lg w-full mt-5 font-bold"
+        type="submit">+</button>
+        {{!-- ></iconify-icon> --}}
     {{/if}}
 
       </div>
@@ -118,14 +116,10 @@
           {{thursdayRoutine.name}}      
        </a>
     {{else}}
-       <iconify-icon
-          class="justify-center new-routine-icon"
-          icon="el:plus-sign"
-          style="color: #e6b325;"
-          width="50"
-          height="50"
-          data-day="Thursday"
-        ></iconify-icon>
+    <button data-routine_id="{{thursdayRoutine.id}}" data-day="Thursday" id="plus-btn"
+        class="block pt-3 pb-3 pl-6 pr-6 rounded-lg w-full mt-5 font-bold"
+        type="submit">+</button>
+        {{!-- ></iconify-icon> --}}
     {{/if}}
       </div>
     </div>
@@ -144,14 +138,10 @@
           {{fridayRoutine.name}}      
        </a>
     {{else}}
-       <iconify-icon
-          class="justify-center new-routine-icon"
-          icon="el:plus-sign"
-          style="color: #e6b325;"
-          width="50"
-          height="50"
-          data-day="Friday"
-        ></iconify-icon>
+    <button data-routine_id="{{fridayRoutine.id}}" data-day="Friday" id="plus-btn"
+        class="block pt-3 pb-3 pl-6 pr-6 rounded-lg w-full mt-5 font-bold"
+        type="submit">+</button>
+        {{!-- ></iconify-icon> --}}
     {{/if}}
       </div>
     </div>
@@ -170,14 +160,10 @@
           {{saturdayRoutine.name}}      
        </a>
     {{else}}
-       <iconify-icon
-          class="justify-center new-routine-icon"
-          icon="el:plus-sign"
-          style="color: #e6b325;"
-          width="50"
-          height="50"
-          data-day="Saturday"
-        ></iconify-icon>
+    <button data-routine_id="{{saturdayRoutine.id}}" data-day="Saturday" id="plus-btn"
+        class="block pt-3 pb-3 pl-6 pr-6 rounded-lg w-full mt-5 font-bold"
+        type="submit">+</button>
+        {{!-- ></iconify-icon> --}}
     {{/if}}
       </div>
     </div>
@@ -196,60 +182,14 @@
           {{sundayRoutine.name}}      
        </a>
     {{else}}
-       <iconify-icon
-          class="justify-center new-routine-icon"
-          icon="el:plus-sign"
-          style="color: #e6b325;"
-          width="50"
-          height="50"
-          data-day="Sunday"
-        ></iconify-icon>
+    <button data-routine_id="{{sundayRoutine.id}}" data-day="Sunday" id="plus-btn"
+        class="block pt-3 pb-3 pl-6 pr-6 rounded-lg w-full mt-5 font-bold"
+        type="submit">+</button>
+        {{!-- ></iconify-icon> --}}
     {{/if}}
       </div>
     </div>
   </div>
 </div>
 
-<script>
-  const links = document.querySelectorAll('.new-routine-link');
-
-  if (links.length) {
-    links.forEach(function(link) {
-      link.addEventListener('click', function(event) {
-        event.preventDefault();
-        const day = this.dataset.day;
-        const routineId = this.dataset.routine_id;
-        console.log(day, routineId);
-        document.location.replace(`/routine/${routineId}?day=${day}`);
-      });
-    });
-  }
-    const icons = document.querySelectorAll('.new-routine-icon');
-
-  if (icons.length) {
-    icons.forEach(function(icon) {
-      icon.addEventListener('click', function() {
-        const day = this.dataset.day;
-        document.location.replace(`/routine?day=${day}`);
-      });
-    });
-  }
- 
-  //exercise.html LOGOUT (button id="logout-btn"), + BUTTON for ROUTINE DAY OF THE WEEK (button), PREVIOUS WORKOUTS (? a or button)
-const logout = async () => {
-    const response = await fetch('/api/users/logout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-    });
-  
-    if (response.ok) {
-      document.location.replace('/login');
-    } else {
-      alert(response.statusText);
-    }
-  };
-  
-  document
-  .querySelector('#logout-btn')
-  .addEventListener('click', logout);
-</script>
+<script src="/js/home.js"></script>
