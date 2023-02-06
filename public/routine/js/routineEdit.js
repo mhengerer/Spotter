@@ -40,7 +40,7 @@ function buildList(data, routineId) {
       firstLabel1.className = "font-bold text-[1.75rem]";
       secondLabel1.textContent = "learn movement";
       secondLabel1.className = "underline text-gray-300";
-      secondLabel1.href = `${data[i].gif_url}`;
+      secondLabel1.href = `${data[i].gifUrl}`;
 
       column1.className = "rounded-lg w-full md:w-[90%] p-2 bg-secondary text-center";
 

@@ -31,7 +31,7 @@
       <div class="w-full flex flex-col space-y-3">
         <!-- List  -->
         {{#each existingExercises as |exercise| }}
-        {{> existingExercise }}
+        {{> existingExercise name=exercise.name gif_url=exercise.gif_url}}
         {{/each}}
         <!-- List End  -->
       </div>
