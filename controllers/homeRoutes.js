@@ -10,20 +10,8 @@ router.get('/', withAuth, async (req, res) => {
   try {
 
     const routineData = await Routine.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-      // need to query all routines created by logged in user that 
       where: {
-        // isnt defined
-        user_id: req.session.user_id,
-        // date range 
-        scheduled: {
-          [Op.between]: [today, lastDay],
-        },
+        user_id: req.session.user_id
       },
     });
 
