@@ -69,11 +69,11 @@ form.addEventListener('submit', async (e) => {
     });
 
     if (response.ok) {
-        alert('Signup successful! Press "Ok" to proceed to your Weekly Routine!');
+        console.log('Signup successful! Press "Ok" to proceed to your Weekly Routine!');
 
         document.location.replace('/');
     } else {
-        alert('Error signing up');
+        console.log('Error signing up');
     }
 });
 
