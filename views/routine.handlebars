@@ -21,14 +21,18 @@
     class="p-5 w-full p-5 flex flex-col space-y-5 lg:space-y-0 lg:flex-row lg:space-x-12 bg-tertiary h-full"
   >
     <!-- Col 1  -->
-    <div class="flex flex-col space-y-2 w-full items-center">
+    <div class="movement-list flex flex-col space-y-2 w-full items-center">
       <div class="text-primary font-semibold text-[1.5rem]">{{routine.scheduled}}</div>
       <div
         class="bg-quarternary p-3 text-white font-bold w-full text-center text-[1.5rem]"
       >
         {{ routine.name }}
       </div>
-      <div class="workout-list w-full flex flex-col space-y-3"></div>
+      <div class=" w-full flex flex-col space-y-3">
+                <!-- List  -->
+
+        <!-- List End  -->
+      </div>
     </div>
     <!-- Col 2  -->
     <div class="w-full p-2 bg-quarternary h-fit">
@@ -38,27 +42,13 @@
         placeholder="Search Movements"
         type="text"
         id="user-query"
-        />  
+        />
       </form>
       
-      <div class="movement-list mt-2 flex flex-col space-y-3">
-        <!-- List  -->
+      <div class="workout-list mt-2 flex flex-col space-y-3">
         {{#each exercises as |exercise| }}
-        <div class="flex items-center justify-between p-3 bg-secondary">
-          <div class="w-[20%]"></div>
-          <div class="text-white text-center">
-            <div  class="font-bold text-[1.75rem]">{{ exercise.name }}</div>
-            <a  href="{{exercise.gif_url}}" class="text-gray-300">learn movement</a>
-          </div>
-          <div
-            id="{{ exercise.name }}"
-            class="movement-item cursor-pointer hover:brightness-110 w-[20%] flex justify-end"
-          >
-            <img class="w-[40px] h-[40px]" src="../images/add.svg"/>
-          </div>
-        </div>
+        {{> newExercise }}
         {{/each}}
-        <!-- List End  -->
       </div>
     </div>
   </div>
