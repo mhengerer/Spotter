@@ -12,13 +12,12 @@
     color:var(--text-color);
 }
 
-button:hover {
-    background-color: var(--hover-yellow);
-}
-
-button{
+button {
     background-color: var(--gold);
     color: #261C2C;
+}
+button:hover {
+    background-color: var(--hover-yellow);
 }
 
 header,
