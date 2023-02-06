@@ -106,14 +106,11 @@ router.get("/routine", withAuth, async (req, res) => {
 
   const existingExercises = exerciseData.map((exercise) => exercise.get({ plain: true }));
 
-  res.render("routine", {
+  res.redirect("routine", {
     routine,
     existingExercises,
     logged_in: req.session.logged_in,
   });
-  // .catch (err) {
-  //   res.status(505).json(err);
-  // }
 });
 
 router.get("/login", (req, res) => {
@@ -130,27 +127,4 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-// TODO: Add /editRoutines route
-
 module.exports = router;
-
-// router.get("/log/:id", withAuth, async (req, res) => {
-//   try {
-//     const logData = await Log.findAll({
-//       where: {
-//         id: req.params.user_id,
-//       },
-//     });
-
-//     const log = logData.get({ plain: true });
-
-//     res.render("log", {
-//       ...log,
-//       logged_in: true,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-

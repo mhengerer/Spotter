@@ -20,6 +20,7 @@ movementItems.forEach((el) =>
   })
 );
 
+let exerciseObjects; 
 function buildList(data) {
   // If the list has any children, remove them all 
   while (workoutList.firstChild) {
@@ -27,6 +28,7 @@ function buildList(data) {
   }
   if (data != null) {
     //Create a card for each element in data
+
     for (let i = 0; i < data.length; i++) {
       let parentDiv = document.createElement("div");
 
@@ -80,8 +82,3 @@ $('#searchbar').submit(async (e) => {
   buildList(exercises);
   }
 );
-
-// $('.addColumn').click(function (e) { 
-//   e.preventDefault();
-//   postExercise();
-// });
