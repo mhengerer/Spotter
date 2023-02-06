@@ -224,12 +224,25 @@
       });
     });
   }
-    const icons = document.querySelectorAll('.new-routine-icon');
+
+  const icons = document.querySelectorAll('.new-routine-icon');
+  
+  const { compareDateToDay } = require(js/daySwitcher);
 
   if (icons.length) {
     icons.forEach(function(icon) {
       icon.addEventListener('click', function() {
         const day = this.dataset.day;
+        const response = await fetch("/api/routines", {
+          method: 'POST', 
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: 'Test Example', 
+            scheduled: 
+          });
+        });
         document.location.replace(`/routine?day=${day}`);
       });
     });

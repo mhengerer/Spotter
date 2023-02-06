@@ -66,7 +66,6 @@ module.exports = {
       return true;
     } 
   }
-
 };
 
 // needs helper function to get date and date in a week for range in homeroutes
