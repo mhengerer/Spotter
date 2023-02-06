@@ -17,8 +17,8 @@
     <script>
         import { deleteExercise } from './js/exercises.js'; 
 
-        $('.deleteColumn').click(() => {
-            deleteExercise({{exercise.id}})
+        $('.deleteColumn').click((exercise_id) => {
+            deleteExercise(exercise_id);
         })
     </script>
 </div>
