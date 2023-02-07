@@ -61,8 +61,7 @@ function buildList(data, routineId) {
         let exerciseData = JSON.parse(e.target.getAttribute("data-Exercise"))[0];
         console.log(exerciseData);
         postExercise(exerciseData, routineId);
-        window.location.reload();
-        // buildList(workoutData);
+        setTimeout(window.location.reload(), 2000);
       });
       // Remove the workout from the left column and DELETE it from the database
       // deleteButtons.addEventListener("click", (e) => {
